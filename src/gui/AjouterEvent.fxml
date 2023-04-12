@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterEventController">
+    <children>
+        <TextArea fx:id="nom" layoutX="281.0" layoutY="169.0" prefHeight="25.0" prefWidth="200.0" promptText="Nom" />
+        <TextField fx:id="spot" layoutX="281.0" layoutY="239.0" prefHeight="47.0" prefWidth="200.0" promptText="Spot" />
+        <TextArea fx:id="duration" layoutX="281.0" layoutY="302.0" prefHeight="31.0" prefWidth="200.0" promptText="Durée" />
+        <DatePicker fx:id="date" layoutX="281.0" layoutY="367.0" prefHeight="47.0" prefWidth="200.0" promptText="Date" />
+        <Button fx:id="Ajouter_Event" layoutX="347.0" layoutY="465.0" mnemonicParsing="false" onAction="#Ajouter_Event" text="Ajouter" />
+
+        <TextArea fx:id="category" layoutX="281.0" layoutY="107.0" prefHeight="25.0" prefWidth="200.0" promptText="Category" />
+       
+      <Label layoutX="83.0" layoutY="32.0" prefHeight="47.0" prefWidth="422.0" text="Ajouter un Evenement" textFill="#9e1a1a" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

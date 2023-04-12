@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierCategoryController">
+    
+   <children>
+      <AnchorPane layoutX="71.0" layoutY="53.0" prefHeight="282.0" prefWidth="727.0">
+         <children>
+            <Label layoutX="20.0" layoutY="60.0" text="Titre :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="141.0" text="Description :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="titre" layoutX="122.0" layoutY="60.0" prefHeight="31.0" prefWidth="374.0" />
+            <TextField fx:id="description" layoutX="122.0" layoutY="148.0" prefHeight="98.0" prefWidth="374.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="Annuler" layoutX="759.0" layoutY="472.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="25.0" prefWidth="79.0" text="Annuler" />
+      <Button fx:id="Modifier_Category" layoutX="224.0" layoutY="399.0" mnemonicParsing="false" onAction="#Modifier_Category" prefHeight="31.0" prefWidth="276.0" text="Modifier Category" />
+   </children>
+    
+</AnchorPane>
