@@ -5,17 +5,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.AjoutershopController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutershopController">
    <children>
-      <Label layoutX="54.0" layoutY="55.0" text="User" />
-      <TextField fx:id="tfuser" layoutX="154.0" layoutY="51.0" />
-      <Label layoutX="46.0" layoutY="90.0" text="Name Shop" />
-      <TextField fx:id="tfname" layoutX="154.0" layoutY="86.0" />
-      <Label layoutX="42.0" layoutY="125.0" text="Descripction" />
-      <TextField fx:id="tfdescription" layoutX="154.0" layoutY="121.0" />
-      <Label layoutX="46.0" layoutY="157.0" text="Email" />
-      <TextField fx:id="tfemail" layoutX="154.0" layoutY="153.0" />
-      <Button layoutX="399.0" layoutY="233.0" mnemonicParsing="false" onAction="#ajoutershop" text="Ajouter" />
+      <Label layoutX="50.0" layoutY="50.0" text="User:" />
+      <TextField fx:id="tfuser" layoutX="150.0" layoutY="45.0" prefWidth="200.0" />
+      <Label layoutX="50.0" layoutY="90.0" text="Name Shop:" />
+      <TextField fx:id="tfname" layoutX="150.0" layoutY="85.0" prefWidth="200.0" />
+      <Label layoutX="50.0" layoutY="130.0" text="Description:" />
+      <TextField fx:id="tfdescription" layoutX="150.0" layoutY="125.0" prefWidth="200.0" />
+      <Label layoutX="50.0" layoutY="170.0" text="Email:" />
+      <TextField fx:id="tfemail" layoutX="150.0" layoutY="165.0" prefWidth="200.0" />
+      <Button layoutX="250.0" layoutY="233.0" mnemonicParsing="false" onAction="#ajoutershop" prefWidth="100.0" text="Ajouter" />
+     
    </children>
 </AnchorPane>

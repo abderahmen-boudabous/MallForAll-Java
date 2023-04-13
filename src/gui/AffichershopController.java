@@ -136,7 +136,7 @@ public class AffichershopController implements Initializable {
                 setText(null);
             } else {
                 Button updateButton = new Button("Modifier");
-                updateButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-cursor: hand;");
+               updateButton.setStyle("-fx-background-color: #2196f3; -fx-text-fill: white; -fx-cursor: hand;");
                 updateButton.setOnAction((ActionEvent event) -> {
                     // Deletes the selected product and refreshes the table
                     shop = shopView.getSelectionModel().getSelectedItem();

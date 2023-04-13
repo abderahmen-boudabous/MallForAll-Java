@@ -141,7 +141,8 @@ public class AffichherproductController implements Initializable {
                 setText(null);
             } else {
                 Button updateButton = new Button("update");
-                updateButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-cursor: hand;");
+               updateButton.setStyle("-fx-background-color: #2196f3; -fx-text-fill: white; -fx-cursor: hand;");
+
                 updateButton.setOnAction((ActionEvent event) -> {
                     // Deletes the selected product and refreshes the table
                     product = productView.getSelectionModel().getSelectedItem();
