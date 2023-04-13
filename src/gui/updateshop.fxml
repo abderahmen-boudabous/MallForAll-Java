@@ -5,8 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.UpdateshopController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateshopController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -19,6 +18,7 @@
             <Label layoutX="46.0" layoutY="157.0" text="Email" />
             <TextField fx:id="tfemail" layoutX="154.0" layoutY="153.0" />
             <Button layoutX="399.0" layoutY="233.0" mnemonicParsing="false" onAction="#updateshop" text="update" />
+            <Button layoutX="337.0" layoutY="233.0" mnemonicParsing="false" onAction="#retourshop" text="Return" />
          </children>
       </AnchorPane>
    </children>

@@ -124,5 +124,16 @@ public class AjoutershopController implements Initializable {
         
         
     }
+
+    @FXML
+    private void Returnshop(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfname.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
     
 }

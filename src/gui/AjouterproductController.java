@@ -134,5 +134,17 @@ public class AjouterproductController implements Initializable {
         
         
     }
+
+    @FXML
+    private void returnproduct(ActionEvent event) {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfname.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
     
 }

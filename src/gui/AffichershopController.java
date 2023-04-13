@@ -195,8 +195,20 @@ public class AffichershopController implements Initializable {
                             System.out.println(ex.getMessage());
                         }
     }
+
+    @FXML
+    private void gtp(ActionEvent event) {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Affichherproduct.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfadd.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+    }
     
      
 
 
+}
 }

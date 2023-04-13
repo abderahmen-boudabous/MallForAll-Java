@@ -22,5 +22,6 @@
         </columns>
       </TableView>
       <Button layoutX="636.0" layoutY="469.0" mnemonicParsing="false" onAction="#addp" text="Add product" />
+      <Button layoutX="45.0" layoutY="469.0" mnemonicParsing="false" onAction="#gts" prefHeight="25.0" prefWidth="115.0" text="Go to Shop" />
    </children>
 </AnchorPane>

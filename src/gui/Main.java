@@ -27,7 +27,7 @@ public class Main extends Application {
 
         try {
               Parent root = FXMLLoader.load(getClass().getResource("affichershop.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("affichherproduct.fxml"));
+            // Parent root = FXMLLoader.load(getClass().getResource("affichherproduct.fxml"));
             Scene scene = new Scene(root, 900, 600);
 
             primaryStage.setScene(scene);

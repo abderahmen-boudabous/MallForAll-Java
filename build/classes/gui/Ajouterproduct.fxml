@@ -10,20 +10,21 @@
     
     <children>
         <Label text="Name" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="55.0" />
-        <TextField fx:id="tfname" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="51.0" />
+        <TextField fx:id="tfname" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="51.0" />
         
-        <ChoiceBox fx:id="cbshop" layoutX="79.0" layoutY="228.0" prefWidth="150.0" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="228.0" />
-        <Label layoutX="36.0" layoutY="232.0" text="Shop" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="232.0" />
+        <ChoiceBox fx:id="cbshop" prefWidth="150.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="228.0" />
+        <Label text="Shop" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="232.0" />
         
-        <Label layoutX="41.0" layoutY="96.0" text="Price" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="96.0" />
-        <TextField fx:id="tfprice" layoutX="79.0" layoutY="92.0" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="92.0" />
+        <Label text="Price" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="96.0" />
+        <TextField fx:id="tfprice" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="92.0" />
         
         <Label text="Type" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="133.0" />
-        <TextField fx:id="tftype" layoutX="79.0" layoutY="130.0" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="130.0" />
+        <TextField fx:id="tftype" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="130.0" />
         
-        <Label layoutX="42.0" layoutY="173.0" text="Stock" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="173.0" />
-        <TextField fx:id="tfstock" layoutX="80.0" layoutY="169.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="169.0" />
+        <Label text="Stock" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="173.0" />
+        <TextField fx:id="tfstock" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="169.0" />
         
         <Button mnemonicParsing="false" onAction="#ajouterproduct" text="Ajouter" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="206.0" />
+        <Button mnemonicParsing="false" onAction="#returnproduct" text="Return" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="41.0" />
     </children>
 </AnchorPane>

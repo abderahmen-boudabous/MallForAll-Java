@@ -114,4 +114,16 @@ public class UpdateshopController implements Initializable {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    @FXML
+    private void retourshop(ActionEvent event) {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfname.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
 }

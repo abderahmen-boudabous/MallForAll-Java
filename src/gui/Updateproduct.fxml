@@ -6,8 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.UpdateproductController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateproductController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -22,6 +21,7 @@
             <TextField fx:id="tfstock" layoutX="70.0" layoutY="169.0" />
             <Label layoutX="27.0" layoutY="232.0" text="Shop" />
             <Button layoutX="394.0" layoutY="294.0" mnemonicParsing="false" onAction="#updateproduct" text="Modifer" />
+            <Button layoutX="329.0" layoutY="294.0" mnemonicParsing="false" onAction="#retourproduct" text="Return" />
          </children>
       </AnchorPane>
    </children>

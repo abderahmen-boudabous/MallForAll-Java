@@ -129,6 +129,18 @@ public class UpdateproductController implements Initializable {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    @FXML
+    private void retourproduct(ActionEvent event) {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfname.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
     
     
     
