@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.AfficherFournisseurController">
+    
+   <TableView fx:id="categoriesTable" layoutY="168.0" prefHeight="160.0" prefWidth="718.0">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
+            <TableColumn fx:id="NomColumn" prefWidth="84.0" text="Nom" />
+            <TableColumn fx:id="TelColumn" prefWidth="77.0" text="Tel" />
+            <TableColumn fx:id="AddressColumn" prefWidth="102.0" text="Address" />
+            <TableColumn fx:id="EmailColumn" minWidth="0.0" prefWidth="150.0" text="Email" />
+            <TableColumn fx:id="CategorieColumn" prefWidth="90.0" text="Categorie" />
+            <TableColumn fx:id="actionColumn" prefWidth="242.0" text="action" />
+        </columns>
+    </TableView>
+   <Button fx:id="btAjoutF" layoutX="235.0" layoutY="336.0" mnemonicParsing="false" onAction="#RedirectionAjouter" prefHeight="25.0" prefWidth="251.0" text="Ajouter Un Fournisseur" textFill="#0cdad3" />
+   <Label layoutX="264.0" layoutY="8.0" text="Admin Dashboard" textFill="#0dc7e8">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="226.0" layoutY="51.0" prefHeight="35.0" prefWidth="301.0" text="La Liste Des Fournisseurs" textFill="#0dc7e8">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <ToolBar layoutX="177.0" layoutY="95.0" prefHeight="35.0" prefWidth="367.0">
+      <items>
+         <Button fx:id="btCategorie" mnemonicParsing="false" onAction="#RedirectionCategorie" prefHeight="25.0" prefWidth="173.0" text="Categories Des Fournisseurs" textFill="#0eaadd" />
+         <Button fx:id="btFournisseur" mnemonicParsing="false" onAction="#RedirectionFournisseur" prefHeight="25.0" prefWidth="176.0" text="Fournisseurs" textFill="#0d9cbf" />
+      </items>
+   </ToolBar>
+</AnchorPane>
