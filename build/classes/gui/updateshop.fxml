@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.UpdateshopController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="54.0" layoutY="55.0" text="User" />
+            <TextField fx:id="tfuser" layoutX="154.0" layoutY="51.0" />
+            <Label layoutX="46.0" layoutY="90.0" text="Name Shop" />
+            <TextField fx:id="tfname" layoutX="154.0" layoutY="86.0" />
+            <Label layoutX="42.0" layoutY="125.0" text="Descripction" />
+            <TextField fx:id="tfdescription" layoutX="154.0" layoutY="121.0" />
+            <Label layoutX="46.0" layoutY="157.0" text="Email" />
+            <TextField fx:id="tfemail" layoutX="154.0" layoutY="153.0" />
+            <Button layoutX="399.0" layoutY="233.0" mnemonicParsing="false" onAction="#updateshop" text="update" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

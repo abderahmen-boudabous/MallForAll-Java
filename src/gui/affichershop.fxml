@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="774.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichershopController">
+    <stylesheets>
+        <URL value="@affichershop.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfadd" layoutX="703.0" layoutY="464.0" prefHeight="0.0" prefWidth="14.0" />
+      <TableView fx:id="shopView" layoutX="6.0" layoutY="6.0" prefHeight="447.0" prefWidth="767.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="28.0" text="ID" />
+          <TableColumn fx:id="user" prefWidth="54.0" text="USER" />
+            <TableColumn fx:id="name" prefWidth="74.0" text="SHOP" />
+            <TableColumn fx:id="description" prefWidth="250.0" text="DESCRIPTION" />
+            <TableColumn fx:id="email" minWidth="0.0" prefWidth="110.0" text="EMAIL" />
+            <TableColumn fx:id="date" prefWidth="100.0" text="DATE" />
+            <TableColumn fx:id="deletes" prefWidth="72.0" text="delete" />
+            <TableColumn fx:id="update" prefWidth="77.0" text="update" />
+        </columns>
+      </TableView>
+      <Button layoutX="668.0" layoutY="464.0" mnemonicParsing="false" onAction="#adds" prefHeight="23.0" prefWidth="83.0" text="ajouter shop" />
+   </children>
+</AnchorPane>
