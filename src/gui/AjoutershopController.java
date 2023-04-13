@@ -83,12 +83,20 @@ public class AjoutershopController implements Initializable {
             Alert aler = new Alert(Alert.AlertType.ERROR);
             aler.setTitle("Erreur");
             aler.setHeaderText(null);
-
             aler.setContentText("Le email est vide !");
             ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
             aler.getButtonTypes().setAll(okButton);
             aler.showAndWait();
+        } else if (!tfemail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            Alert aler = new Alert(Alert.AlertType.ERROR);
+            aler.setTitle("Erreur");
+            aler.setHeaderText(null);
+            aler.setContentText("Le format de l'email est invalide !");
+            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+            aler.getButtonTypes().setAll(okButton);
+            aler.showAndWait();
         }
+        
         else {
             Date date = new Date(System.currentTimeMillis());
             Shop shop = new Shop (tfname.getText(),tfdescription.getText(),tfemail.getText(),tfuser.getText(),date);

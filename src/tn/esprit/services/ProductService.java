@@ -58,6 +58,7 @@ public class ProductService implements NewInterface<Product> {
         return products;
     }
     
+    
     public List<Product> afficherr() {
     List<Product> productList = new ArrayList<>();
     try {

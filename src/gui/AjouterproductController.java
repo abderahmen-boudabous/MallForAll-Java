@@ -74,70 +74,62 @@ public class AjouterproductController implements Initializable {
     @FXML
     private void ajouterproduct(ActionEvent event) {
         if (tfname.getText().isEmpty()) {
-            Alert aler = new Alert(Alert.AlertType.ERROR);
-            aler.setTitle("Erreur");
-            aler.setHeaderText(null);
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur");
+    alert.setHeaderText(null);
+    alert.setContentText("Le nom est vide !");
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    alert.showAndWait(); 
+} else if (tfprice.getText().isEmpty() || !tfprice.getText().matches("\\d+(\\.\\d+)?")) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur");
+    alert.setHeaderText(null);
+    alert.setContentText("Le prix doit être un nombre !");
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    alert.showAndWait(); 
+} else if (tftype.getText().isEmpty()) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur");
+    alert.setHeaderText(null);
+    alert.setContentText("Le nom est vide !");
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    alert.showAndWait(); 
+} else if (tfstock.getText().isEmpty() || !tfstock.getText().matches("\\d+")) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur");
+    alert.setHeaderText(null);
+    alert.setContentText("Le stock doit être un nombre entier !");
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    alert.showAndWait(); 
+} else {
+    Shop shop = cbshop.getValue(); 
+    float price = Float.parseFloat(tfprice.getText());
+    Product product = new Product (tfname.getText(),price,tftype.getText(),Integer.parseInt(tfstock.getText()),shop);
+    ProductService productService = new ProductService();
+    productService.ajouter(product); 
 
-            aler.setContentText("Le nom est vide !");
-            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
-            aler.getButtonTypes().setAll(okButton);
-            aler.showAndWait(); 
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Success");
+    alert.setHeaderText("product ajoutée");
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
+    okBtn.setOnAction(evt -> {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+        try {
+            Parent root = loader.load();
+            tfname.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
-        else if (tfprice.getText().isEmpty()) {
-            Alert aler = new Alert(Alert.AlertType.ERROR);
-            aler.setTitle("Erreur");
-            aler.setHeaderText(null);
+    });
+    alert.showAndWait();
+}
 
-            aler.setContentText("Le nom est vide !");
-            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
-            aler.getButtonTypes().setAll(okButton);
-            aler.showAndWait(); 
-        }
-        else if (tftype.getText().isEmpty()) {
-            Alert aler = new Alert(Alert.AlertType.ERROR);
-            aler.setTitle("Erreur");
-            aler.setHeaderText(null);
-
-            aler.setContentText("Le nom est vide !");
-            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
-            aler.getButtonTypes().setAll(okButton);
-            aler.showAndWait(); 
-        }
-        else if (tfstock.getText().isEmpty()) {
-            Alert aler = new Alert(Alert.AlertType.ERROR);
-            aler.setTitle("Erreur");
-            aler.setHeaderText(null);
-
-            aler.setContentText("Le nom est vide !");
-            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
-            aler.getButtonTypes().setAll(okButton);
-            aler.showAndWait(); 
-        }
-        
-        else {
-            Shop shop = cbshop.getValue(); 
-            float price = Float.parseFloat(tfprice.getText());
-            Product product = new Product (tfname.getText(),price,tftype.getText(),Integer.parseInt(tfstock.getText()),shop);
-            ProductService productService = new ProductService();
-            productService.ajouter(product); 
-            
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText("product ajoutée");
-                    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
-                    alert.getButtonTypes().setAll(okButton);
-                    Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
-                    okBtn.setOnAction(evt -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
-                        try {
-                            Parent root = loader.load();
-                            tfname.getScene().setRoot(root);
-                        } catch (IOException ex) {
-                            System.out.println(ex.getMessage());
-                        }
-                    });
-                    alert.showAndWait();
-        }
         
         
         
