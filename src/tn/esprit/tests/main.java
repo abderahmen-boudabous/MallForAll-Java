@@ -34,8 +34,8 @@ public class main {
         System.out.println("------------------------");
     }*/
 
-       /*
-        
+       
+        /*
         //Affichage product :
         List<Product> products = productService.afficherr();
         System.out.println("List of products:");

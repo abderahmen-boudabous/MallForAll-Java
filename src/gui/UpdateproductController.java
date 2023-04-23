@@ -142,6 +142,4 @@ public class UpdateproductController implements Initializable {
                         }
     }
     
-    
-    
 }

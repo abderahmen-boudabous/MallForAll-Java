@@ -40,8 +40,6 @@ import tn.esprit.services.ShopService;
 public class AffichherproductController implements Initializable {
 
     @FXML
-    private TableColumn<Product, String> id;
-    @FXML
     private TableColumn<Product, String> name;
     @FXML
     private TableColumn<Product, String> type;
@@ -79,7 +77,7 @@ public class AffichherproductController implements Initializable {
         refreshTable();
 
         // Sets the cell value factories for each column in the table
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
@@ -125,11 +123,8 @@ public class AffichherproductController implements Initializable {
     return cell;
 };
 
-        
         deletep.setCellFactory(cellFactory);
-        
-        
-        
+       
         Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactory2 = (TableColumn<Product, String> param) -> {
     // make cell containing buttons
     final TableCell<Product, String> cell = new TableCell<Product, String>() {

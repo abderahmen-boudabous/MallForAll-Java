@@ -11,14 +11,13 @@
       <TextField fx:id="tete" layoutX="671.0" layoutY="469.0" prefHeight="25.0" prefWidth="0.0" />
       <TableView fx:id="productView" layoutX="15.0" layoutY="12.0" prefHeight="438.0" prefWidth="716.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="44.0" text="id" />
           <TableColumn fx:id="name" prefWidth="112.0" text="name" />
             <TableColumn fx:id="type" prefWidth="84.0" text="type" />
             <TableColumn fx:id="stock" prefWidth="92.0" text="stock" />
             <TableColumn fx:id="price" prefWidth="100.0" text="price" />
             <TableColumn fx:id="shop" prefWidth="133.0" text="shop" />
-            <TableColumn fx:id="deletep" prefWidth="61.0" text="delete" />
-            <TableColumn fx:id="update" prefWidth="86.0" text="update" />
+            <TableColumn fx:id="deletep" prefWidth="96.0" text="delete" />
+            <TableColumn fx:id="update" prefWidth="98.0" text="update" />
         </columns>
       </TableView>
       <Button layoutX="636.0" layoutY="469.0" mnemonicParsing="false" onAction="#addp" text="Add product" />
