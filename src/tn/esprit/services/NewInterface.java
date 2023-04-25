@@ -7,6 +7,7 @@ package tn.esprit.services;
 
 import java.util.List;
 import tn.esprit.entities.Personne;
+import tn.esprit.entities.Shop;
 
 /**
  *
@@ -16,5 +17,6 @@ public interface NewInterface<T> {
     public void ajouter(T p);
     public List<T> afficher();
     public void supprimer(T p);
+    //public void ajouter(Shop s, String imagePath);
     
 }

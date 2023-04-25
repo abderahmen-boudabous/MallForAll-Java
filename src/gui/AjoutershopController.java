@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -20,9 +22,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tn.esprit.entities.Shop;
 import tn.esprit.services.ShopService;
+
 
 /**
  * FXML Controller class
@@ -45,6 +50,10 @@ public class AjoutershopController implements Initializable {
     private Button pproducts;
     @FXML
     private Button home;
+    @FXML
+    private ImageView imageview;
+    
+    private String filePath;
 
     /**
      * Initializes the controller class.
@@ -139,7 +148,8 @@ public class AjoutershopController implements Initializable {
         
         else {
             Date date = new Date(System.currentTimeMillis());
-            Shop shop = new Shop (tfname.getText(),tfdescription.getText(),tfemail.getText(),tfuser.getText(),date);
+            
+            Shop shop = new Shop (tfname.getText(),tfdescription.getText(),tfemail.getText(),tfuser.getText(),date,filePath);
             ShopService shopService = new ShopService();
             shopService.ajouter(shop); 
             
@@ -175,6 +185,28 @@ public class AjoutershopController implements Initializable {
                             System.out.println(ex.getMessage());
                         }
     }
-    
+
+    @FXML
+    private void image(ActionEvent event) {
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selection une image");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (.jpg, *.png, *.gif)", ".jpg", ".jpeg", ".png", "*.gif");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(null);
+        if (file == null) {
+            // User didn't select a file
+            return;
+        }
+        // Stockez le chemin d'accès du fichier sélectionné
+        filePath = file.getAbsolutePath();
+
+        // Affichez l'image sélectionnée dans l'ImageView
+        javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
+        imageview.setImage(image);
+    } 
     
 }
+    
+    
+

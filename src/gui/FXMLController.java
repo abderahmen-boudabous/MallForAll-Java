@@ -7,6 +7,10 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -17,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -26,9 +31,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.activation.DataSource;
 import static sun.font.FontManagerNativeLibrary.load;
 import tn.esprit.entities.Shop;
 import tn.esprit.services.ShopService;
+import tn.esprit.tools.MaConnexion;
 
 /**
  * FXML Controller class
@@ -66,6 +73,10 @@ public class FXMLController implements Initializable {
     private TextField tfadd;
     @FXML
     private Button home;
+    @FXML
+    private TextField searchfield;
+    
+     private Connection cnx=MaConnexion.getInstance().getCnx();
 
     /**
      * Initializes the controller class.
@@ -228,6 +239,89 @@ public void load() {
     }
 
         // TODO
+
+    public ObservableList<Shop> afficherListeShop() {
+    ShopService shopService = new ShopService();
+    ObservableList<Shop> shopsList = FXCollections.observableArrayList(shopService.afficher());
+    return shopsList;
+}
+
+
+@FXML
+private void search(ActionEvent event) {
+    try {
+        String searchQuery = searchfield.getText().trim();
+        if (searchQuery.isEmpty()) {
+            // Show an error message if the search field is empty
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Search field is empty");
+            alert.setContentText("Please enter a shop name to search for.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Initialize SQL query to search for a shop by its name
+        String query = "SELECT id, name, description, email, user_s, date, img FROM Shop WHERE name LIKE ?";
+        PreparedStatement pst = cnx.prepareStatement(query);
+        pst.setString(1, "%" + searchQuery + "%");
+
+        // Execute SQL query and get the result
+        ResultSet rs = pst.executeQuery();
+
+        // Check if the result is empty
+        if (!rs.next()) {
+            // Show an error message if there are no results
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Shop not found");
+            alert.setContentText("Cannot find a shop with the name \"" + searchQuery + "\".");
+            alert.showAndWait();
+            return;
+        }
+
+        // Create a new Shop object from the SQL query results
+        Shop shop = new Shop(
+            rs.getInt("id"),
+            rs.getString("name"),
+            rs.getString("description"),
+            rs.getString("email"),
+            rs.getString("user_s"),
+            rs.getDate("date"),
+            rs.getString("img")
+        );
+
+        // Get the list of items in the TableView
+        ObservableList<Shop> items = shopView.getItems();
+
+        // Clear all items from the list
+        items.clear();
+
+        // Add the Shop object to the TableView items list
+        items.add(shop);
+
+        // Refresh the TableView
+        shopView.refresh();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+    @FXML
+    private void X(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfadd.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+        
+    }
+
+
+
 }    
     
 

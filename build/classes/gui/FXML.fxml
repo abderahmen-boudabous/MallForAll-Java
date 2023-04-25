@@ -54,6 +54,13 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="searchfield" layoutX="83.0" layoutY="558.0" prefHeight="31.0" prefWidth="149.0" />
+                  <Button layoutX="22.0" layoutY="558.0" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="60.0" text="Search" />
+                  <Button layoutX="232.0" layoutY="558.0" mnemonicParsing="false" onAction="#X" prefHeight="25.0" prefWidth="14.0" style="-fx-background-color: #FFA07A;" text="X" textAlignment="CENTER" textFill="#fc0000">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>

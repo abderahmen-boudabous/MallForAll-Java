@@ -29,6 +29,7 @@ public class ProductService implements NewInterface<Product> {
             ste.setString(3, p.getType());
             ste.setInt(4, p.getStock());
             ste.setInt(5, p.getShop().getId());
+            
 
             ste.executeUpdate();
             System.out.println("Product ajouté !");

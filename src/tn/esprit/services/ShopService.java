@@ -18,7 +18,7 @@ public class ShopService implements NewInterface<Shop> {
 
     @Override
     public void ajouter(Shop s) {
-        sql = "INSERT INTO shop(name, description, email, user_s, date) VALUES (?, ?, ?, ?, ?)";
+        sql = "INSERT INTO shop(name, description, email, user_s, date, img) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setString(1, s.getName());
@@ -26,6 +26,7 @@ public class ShopService implements NewInterface<Shop> {
             ste.setString(3, s.getEmail());
             ste.setString(4, s.getUser_s());
             ste.setDate(5, s.getDate());
+            ste.setString(6, s.getImg());
 
             ste.executeUpdate();
             System.out.println("Shop ajouté !");
@@ -33,6 +34,27 @@ public class ShopService implements NewInterface<Shop> {
             System.out.println(ex.getMessage());
         }
     }
+    /*
+    @Override
+public void ajouter(Shop s, String imagePath) {
+    sql = "INSERT INTO shop(name, description, email, user_s, date, img) VALUES (?, ?, ?, ?, ?, ?)";
+    try {
+        PreparedStatement ste = cnx.prepareStatement(sql);
+        ste.setString(1, s.getName());
+        ste.setString(2, s.getDescription());
+        ste.setString(3, s.getEmail());
+        ste.setString(4, s.getUser_s());
+        ste.setDate(5, s.getDate());
+        ste.setString(6, imagePath);
+
+        ste.executeUpdate();
+        System.out.println("Shop ajouté !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}*/
+
+    
 
     @Override
     public List<Shop> afficher() {

@@ -12,9 +12,20 @@ public class Shop {
     private String email;
     private Date date;
     private String user_s;
- //   private byte[] photo; // Add a byte[] field to store the photo as binary data
+    private String img;
 
     public Shop() {}
+    
+    
+    public Shop(int id, String name, String description, String email, String user_s, Date date, String img) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.email = email;
+        this.user_s = user_s;
+        this.date = date;
+        this.img = img;
+    }
 
     public Shop(int id, String name, String description, String email, String user_s, Date date/*, byte[] photo*/) {
         this.id = id;
@@ -25,15 +36,28 @@ public class Shop {
         this.date = date;
         //this.photo = photo;
     }
+    
+    
 
-    public Shop(String name, String description, String email, String user_s, Date date/*, byte[] photo*/) {      
+    public Shop(String name, String description, String email, String user_s, Date date,String img) {      
         this.name = name;
         this.description = description;
         this.email = email;
         this.user_s = user_s;
         this.date = date;
-       // this.photo = photo;
+        this.img = img;
     }
+    
+    public Shop(String name, String description, String email, String user_s, Date date) {      
+        this.name = name;
+        this.description = description;
+        this.email = email;
+        this.user_s = user_s;
+        this.date = date;
+        
+    }
+
+    
 
     // getters and setters
 
@@ -84,26 +108,21 @@ public class Shop {
     public void setUser_s(String user_s) {
         this.user_s = user_s;
     }
-   /* 
-    public byte[] getPhoto() {
-        return photo;
+    
+    public String getImg() {
+        return img;
     }
 
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }*/
-    
-    // Other getters and setters as needed
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     @Override
     public String toString() {
-        return "Shop{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", email='" + email + '\'' +
-                ", user_s='" + user_s + '\'' +
-                ", date=" + date +
-                '}';
+        return "Shop{" + "id=" + id + ", name=" + name + ", description=" + description + ", email=" + email + ", date=" + date + ", user_s=" + user_s + ", img=" + img + '}';
     }
+
+    
+   
+
 }
