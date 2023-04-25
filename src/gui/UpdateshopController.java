@@ -11,11 +11,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.entities.Shop;
 import tn.esprit.services.ShopService;
 
@@ -31,10 +33,49 @@ public class UpdateshopController implements Initializable {
     private TextField tfemail;
 
     private Shop shop;
+    @FXML
+    private Button home;
+    @FXML
+    private Button sshop;
+    @FXML
+    private Button pproducts;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        sshop.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) sshop.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
+    pproducts.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("FXMLp.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) pproducts.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
+    home.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
     }
 
     @FXML

@@ -44,6 +44,7 @@
                   </ImageView>
                </children>
             </Pane>
+            <Button fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" text="Home" />
             <Button fx:id="sshop" mnemonicParsing="false" prefHeight="57.0" prefWidth="232.0" text="Shops" />
             <Button fx:id="pproducts" mnemonicParsing="false" prefHeight="65.0" prefWidth="233.0" text="Products" />
          </children>

@@ -43,13 +43,47 @@ public class AjoutershopController implements Initializable {
     private Button sshop;
     @FXML
     private Button pproducts;
+    @FXML
+    private Button home;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       sshop.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) sshop.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
+    pproducts.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("FXMLp.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) pproducts.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
+    home.setOnAction(e -> {
+        try {
+            Parent afficherShop = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Scene scene = new Scene(afficherShop);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.err.println("Error loading affichershop.fxml: " + ex.getMessage());
+        }
+    });
     }    
 
     @FXML
