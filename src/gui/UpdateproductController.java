@@ -94,7 +94,7 @@ public class UpdateproductController implements Initializable {
                     alert.getButtonTypes().setAll(okButton);
                     Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
                     okBtn.setOnAction(evt -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);
@@ -133,7 +133,7 @@ public class UpdateproductController implements Initializable {
     @FXML
     private void retourproduct(ActionEvent event) {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);

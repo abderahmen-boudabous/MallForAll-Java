@@ -77,7 +77,7 @@ public class UpdateshopController implements Initializable {
         alert.getButtonTypes().setAll(okButton);
         Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
         okBtn.setOnAction(evt -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
             try {
                 Parent root = loader.load();
                 tfname.getScene().setRoot(root);
@@ -118,7 +118,7 @@ public class UpdateshopController implements Initializable {
     @FXML
     private void retourshop(ActionEvent event) {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);

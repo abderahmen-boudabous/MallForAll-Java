@@ -48,6 +48,10 @@ public class AjouterproductController implements Initializable {
 
     ShopService shopService = new ShopService();
     ProductService productService = new ProductService();
+    @FXML
+    private Button sshop;
+    @FXML
+    private Button pproducts;
         
     /**
      * Initializes the controller class.
@@ -119,7 +123,7 @@ public class AjouterproductController implements Initializable {
     alert.getButtonTypes().setAll(okButton);
     Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
     okBtn.setOnAction(evt -> {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
         try {
             Parent root = loader.load();
             tfname.getScene().setRoot(root);
@@ -138,7 +142,7 @@ public class AjouterproductController implements Initializable {
     @FXML
     private void returnproduct(ActionEvent event) {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);

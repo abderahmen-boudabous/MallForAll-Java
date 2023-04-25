@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLpController">
+   <children>
+      <HBox prefHeight="608.0" prefWidth="1186.0">
+         <children>
+            <VBox prefHeight="570.0" prefWidth="210.0" style="-fx-background-color: #222a35;">
+               <children>
+                  <Pane prefHeight="163.0" prefWidth="209.0" style="-fx-background-color: #222a35;">
+                     <children>
+                        <ImageView fitHeight="93.0" fitWidth="175.0" layoutX="49.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/325349369_689191806267110_8316241308021983028_n.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Button fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="209.0" text="Home" />
+                  <Button fx:id="sshop" mnemonicParsing="false" prefHeight="57.0" prefWidth="209.0" text="Shops" />
+                  <Button fx:id="pproducts" mnemonicParsing="false" prefHeight="65.0" prefWidth="209.0" text="Products" />
+               </children>
+            </VBox>
+            <Pane prefHeight="583.0" prefWidth="977.0">
+               <children>
+                  <TextField fx:id="tete" layoutX="687.0" layoutY="550.0" prefHeight="25.0" prefWidth="0.0" />
+                  <TableView fx:id="productView" layoutX="33.0" layoutY="98.0" prefHeight="438.0" prefWidth="716.0">
+                     <columns>
+                        <TableColumn fx:id="name" prefWidth="112.0" text="name" />
+                        <TableColumn fx:id="type" prefWidth="84.0" text="type" />
+                        <TableColumn fx:id="stock" prefWidth="92.0" text="stock" />
+                        <TableColumn fx:id="price" prefWidth="100.0" text="price" />
+                        <TableColumn fx:id="shop" prefWidth="133.0" text="shop" />
+                        <TableColumn fx:id="deletep" prefWidth="96.0" text="delete" />
+                        <TableColumn fx:id="update" prefWidth="98.0" text="update" />
+                     </columns>
+                  </TableView>
+                  <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />
+                  <Button layoutX="639.0" layoutY="543.0" mnemonicParsing="false" onAction="#addp" prefHeight="39.0" prefWidth="110.0" text="ADD PRODUCT" />
+                  <Label layoutX="33.0" layoutY="47.0" prefHeight="45.0" prefWidth="293.0" text="LIST OF PRODUCTS">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

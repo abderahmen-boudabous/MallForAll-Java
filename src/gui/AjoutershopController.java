@@ -14,11 +14,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.esprit.entities.Shop;
 import tn.esprit.services.ShopService;
 
@@ -37,6 +39,10 @@ public class AjoutershopController implements Initializable {
     private TextField tfdescription;
     @FXML
     private TextField tfemail;
+    @FXML
+    private Button sshop;
+    @FXML
+    private Button pproducts;
 
     /**
      * Initializes the controller class.
@@ -110,7 +116,7 @@ public class AjoutershopController implements Initializable {
                     alert.getButtonTypes().setAll(okButton);
                     Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
                     okBtn.setOnAction(evt -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);
@@ -127,7 +133,7 @@ public class AjoutershopController implements Initializable {
 
     @FXML
     private void Returnshop(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichershop.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
                         try {
                             Parent root = loader.load();
                             tfname.getScene().setRoot(root);
@@ -135,5 +141,6 @@ public class AjoutershopController implements Initializable {
                             System.out.println(ex.getMessage());
                         }
     }
+    
     
 }

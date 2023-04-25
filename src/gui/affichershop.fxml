@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="774.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichershopController">
+<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="773.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichershopController">
 
     <stylesheets>
         <URL value="@affichershop.css" />
@@ -24,7 +24,7 @@
                 <TableColumn fx:id="email" minWidth="0.0" prefWidth="110.0" text="EMAIL" />
                 <TableColumn fx:id="date" prefWidth="100.0" text="DATE" />
                 <TableColumn fx:id="deletes" prefWidth="72.0" text="delete" />
-                <TableColumn fx:id="update" prefWidth="77.0" text="update" />
+                <TableColumn fx:id="update" minWidth="5.0" prefWidth="78.0" text="update" />
             </columns>
         </TableView>
         <Button layoutX="668.0" layoutY="464.0" mnemonicParsing="false" onAction="#adds" prefHeight="23.0" prefWidth="83.0" text="ajouter shop" />
