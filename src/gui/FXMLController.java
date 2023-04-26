@@ -164,9 +164,7 @@ public void load() {
         
     };
     return cell;
-};
-
-        
+};        
         deletes.setCellFactory(cellFactory);
     
         
@@ -228,8 +226,7 @@ public void load() {
         data.addAll(c);
         shopView.setItems(data);
 
-    }
-    
+    }    
     @FXML
     private void adds(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ajoutershop.fxml"));
@@ -263,12 +260,10 @@ private void search(ActionEvent event) {
             alert.showAndWait();
             return;
         }
-
         // Initialize SQL query to search for a shop by its name
         String query = "SELECT id, name, description, email, user_s, date, img FROM Shop WHERE name LIKE ?";
         PreparedStatement pst = cnx.prepareStatement(query);
         pst.setString(1, "%" + searchQuery + "%");
-
         // Execute SQL query and get the result
         ResultSet rs = pst.executeQuery();
 
@@ -282,7 +277,6 @@ private void search(ActionEvent event) {
             alert.showAndWait();
             return;
         }
-
         // Create a new Shop object from the SQL query results
         Shop shop = new Shop(
             rs.getInt("id"),
@@ -293,7 +287,6 @@ private void search(ActionEvent event) {
             rs.getDate("date"),
             rs.getString("img")
         );
-
         // Get the list of items in the TableView
         ObservableList<Shop> items = shopView.getItems();
 
@@ -322,9 +315,6 @@ private void search(ActionEvent event) {
                         }
         
     }
-
-
-
 }    
     
 

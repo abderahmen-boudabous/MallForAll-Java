@@ -7,6 +7,7 @@ public class Product {
     private String type;
     private int stock;
     private Shop shop;
+    private String photo;
 
     public Product() {
     }
@@ -36,6 +37,16 @@ public class Product {
         this.stock = stock;
         this.shop = shop;
     }
+    
+    public Product(String name, float price, String type, int stock,Shop shop,String photo) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.stock = stock;
+        this.shop = shop;
+        this.photo = photo;
+    }
+    
     
     public Product(String name, float price, String type, int stock) {
         this.name = name;
@@ -97,15 +108,18 @@ public class Product {
         this.shop = Shop;
     }
 
-            @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", type='" + type + '\'' +
-                ", stock=" + stock +
-                ", shop='" + shop +
-                '}';
+    public String getPhoto() {
+        return photo;
     }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", type=" + type + ", stock=" + stock + ", shop=" + shop + ", photo=" + photo + '}';
+    }
+
+            
 }

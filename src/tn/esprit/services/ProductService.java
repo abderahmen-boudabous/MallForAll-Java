@@ -21,7 +21,7 @@ public class ProductService implements NewInterface<Product> {
 
     @Override
     public void ajouter(Product p) {
-        sql = "INSERT INTO product(name, price, type, stock, shop_id) VALUES (?, ?, ?, ?, ?) ";
+        sql = "INSERT INTO product(name, price, type, stock, shop_id, photo) VALUES (?, ?, ?, ?, ?, ?) ";
         try {
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setString(1, p.getName());
@@ -29,6 +29,7 @@ public class ProductService implements NewInterface<Product> {
             ste.setString(3, p.getType());
             ste.setInt(4, p.getStock());
             ste.setInt(5, p.getShop().getId());
+            ste.setString(6, p.getPhoto());
             
 
             ste.executeUpdate();

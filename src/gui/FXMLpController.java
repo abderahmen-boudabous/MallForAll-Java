@@ -7,18 +7,24 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -32,6 +38,7 @@ import static sun.font.FontManagerNativeLibrary.load;
 import tn.esprit.entities.Product;
 import tn.esprit.entities.Shop;
 import tn.esprit.services.ProductService;
+import tn.esprit.tools.MaConnexion;
 
 /**
  * FXML Controller class
@@ -70,6 +77,11 @@ public class FXMLpController implements Initializable {
     private TextField tete;
     @FXML
     private Button home;
+    @FXML
+    private TableColumn<Product, String> photo;
+    @FXML
+    private TextField searchfield;
+    private Connection cnx=MaConnexion.getInstance().getCnx();
 
     /**
      * Initializes the controller class.
@@ -129,6 +141,7 @@ public class FXMLpController implements Initializable {
             }
             return nameProperty;
         });
+        photo.setCellValueFactory(new PropertyValueFactory<>("photo"));
         
         
         Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactory = (TableColumn<Product, String> param) -> {
@@ -240,6 +253,76 @@ public class FXMLpController implements Initializable {
                         } catch (IOException ex) {
                             System.out.println(ex.getMessage());
                         }
+    }
+
+    @FXML
+private void search(ActionEvent event) {
+try {
+String searchQuery = searchfield.getText().trim();
+if (searchQuery.isEmpty()) {
+// Show an error message if the search field is empty
+Alert alert = new Alert(Alert.AlertType.ERROR);
+alert.setTitle("Error");
+alert.setHeaderText("Search field is empty");
+alert.setContentText("Please enter a Product name to search for.");
+alert.showAndWait();
+return;
+}
+    if (cnx == null) {
+        // Show an error message if the database connection is null
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Database connection is null");
+        alert.setContentText("Cannot connect to the database.");
+        alert.showAndWait();
+        return;
+    }
+
+    // Initialize SQL query to search for a product by its name
+    String query = "SELECT id, name, price, type, stock, shop_id, photo FROM Product WHERE name LIKE ?";
+    try (PreparedStatement pst = cnx.prepareStatement(query)) {
+        pst.setString(1, "%" + searchQuery + "%");
+
+        // Execute SQL query and get the result
+        try (ResultSet rs = pst.executeQuery()) {
+            // Check if the result is empty
+            if (!rs.next()) {
+                // Show an error message if there are no results
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Product not found");
+                alert.setContentText("Cannot find a Product with the name \"" + searchQuery + "\".");
+                alert.showAndWait();
+                return;
+            }
+
+            // Create a filtered list based on the original list of items
+            FilteredList<Product> filteredList = new FilteredList<>(productView.getItems());
+
+            // Set the filter predicate based on the search query
+            filteredList.setPredicate(product ->
+                    product.getName().toLowerCase().contains(searchQuery.toLowerCase()));
+
+            // Set the filtered list as the items of the TableView
+            productView.setItems(filteredList);
+        }
+    }
+
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+}
+
+    @FXML
+    private void X(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tete.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+        
     }
     
     

@@ -57,7 +57,6 @@ public class Shop {
         
     }
 
-    
 
     // getters and setters
 
