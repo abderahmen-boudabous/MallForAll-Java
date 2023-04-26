@@ -74,6 +74,7 @@ public class ProductService implements NewInterface<Product> {
             product.setPrice(res.getFloat("price"));
             product.setType(res.getString("type"));
             product.setStock(res.getInt("stock"));
+            product.setPhoto(res.getString("photo"));
             Shop shop = new Shop();
             shop.setId(res.getInt("shop_id"));
             shop.setName(res.getString("shop_name"));

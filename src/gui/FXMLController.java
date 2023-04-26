@@ -78,7 +78,7 @@ public class FXMLController implements Initializable {
     
      private Connection cnx=MaConnexion.getInstance().getCnx();
     @FXML
-    private TableColumn<?, ?> img;
+    private TableColumn<Shop, String> img;
 
     /**
      * Initializes the controller class.

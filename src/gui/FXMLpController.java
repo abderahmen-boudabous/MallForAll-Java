@@ -133,6 +133,7 @@ public class FXMLpController implements Initializable {
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
         shop.setCellValueFactory(cellData -> {
             ObjectProperty<String> nameProperty = new SimpleObjectProperty<>();
             Shop shop = cellData.getValue().getShop();

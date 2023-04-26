@@ -38,6 +38,7 @@ public class Product {
         this.shop = shop;
     }
     
+    
     public Product(String name, float price, String type, int stock,Shop shop,String photo) {
         this.name = name;
         this.price = price;

@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -134,7 +135,7 @@ public class FXMLfrontController implements Initializable {
     like.setCellValueFactory(new PropertyValueFactory<>("like"));
     dislike.setCellValueFactory(new PropertyValueFactory<>("dislike"));
     
-/*    
+  
             Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
             // make cell containing buttons
             final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
@@ -192,9 +193,9 @@ public class FXMLfrontController implements Initializable {
             return cell;
         };        
         dislikebutton.setCellFactory(cellFactory2);
-*/
-/**********************************************************************************************************/
 
+/**********************************************************************************************************/
+/*
     Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
         // make cell containing buttons
         final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
@@ -259,6 +260,7 @@ public class FXMLfrontController implements Initializable {
     };
     dislikebutton.setCellFactory(cellFactory2);
 
+*/
     shopView.setItems(data);
 }
 
