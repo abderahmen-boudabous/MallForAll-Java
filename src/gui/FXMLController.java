@@ -78,7 +78,7 @@ public class FXMLController implements Initializable {
     
      private Connection cnx=MaConnexion.getInstance().getCnx();
     @FXML
-    private TableColumn<Shop, ?> photo;
+    private TableColumn<?, ?> img;
 
     /**
      * Initializes the controller class.
@@ -131,10 +131,9 @@ public void load() {
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        img.setCellValueFactory(new PropertyValueFactory<>("img"));
         
-        
-        
-        
+
         Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
     // make cell containing buttons
     final TableCell<Shop, String> cell = new TableCell<Shop, String>() {

@@ -13,6 +13,9 @@ public class Shop {
     private Date date;
     private String user_s;
     private String img;
+    private int like;
+    private int dislike;
+    
 
     public Shop() {}
     
@@ -47,6 +50,18 @@ public class Shop {
         this.date = date;
         this.img = img;
     }
+    
+    public Shop(String name, String description, String email, String user_s, Date date,String img,int like, int dislike) {      
+        this.name = name;
+        this.description = description;
+        this.email = email;
+        this.user_s = user_s;
+        this.date = date;
+        this.img = img;
+        this.like = like;
+        this.dislike = dislike;
+    }
+
     
     public Shop(String name, String description, String email, String user_s, Date date) {      
         this.name = name;
@@ -115,11 +130,29 @@ public class Shop {
     public void setImg(String img) {
         this.img = img;
     }
+    
+    public int getLike() {
+        return like;
+    }
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public int getDislike() {
+        return dislike;
+    }
+
+    public void setDislike(int dislike) {
+        this.dislike = dislike;
+    }
 
     @Override
     public String toString() {
-        return "Shop{" + "id=" + id + ", name=" + name + ", description=" + description + ", email=" + email + ", date=" + date + ", user_s=" + user_s + ", img=" + img + '}';
+        return "Shop{" + "id=" + id + ", name=" + name + ", description=" + description + ", email=" + email + ", date=" + date + ", user_s=" + user_s + ", img=" + img + ", like=" + like + ", dislike=" + dislike + '}';
     }
+
+    
 
     
    

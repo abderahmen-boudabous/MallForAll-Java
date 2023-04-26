@@ -42,14 +42,14 @@
                         <TableColumn fx:id="description" prefWidth="250.0" text="DESCRIPTION" />
                         <TableColumn fx:id="email" minWidth="0.0" prefWidth="110.0" text="EMAIL" />
                         <TableColumn fx:id="date" prefWidth="100.0" text="DATE" />
-                        <TableColumn fx:id="photo" prefWidth="100.0" text="PHOTO" />
+                        <TableColumn fx:id="img" prefWidth="100.0" text="PHOTO" />
                         <TableColumn fx:id="deletes" prefWidth="72.0" text="delete" />
                         <TableColumn fx:id="update" minWidth="5.0" prefWidth="78.0" text="update" />
                      </columns>
                   </TableView>
-                  <TextField fx:id="tfadd" layoutX="768.0" layoutY="562.0" prefHeight="0.0" prefWidth="14.0" />
+                  <TextField fx:id="tfadd" layoutX="835.0" layoutY="561.0" prefHeight="0.0" prefWidth="14.0" />
                   <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />
-                  <Button layoutX="693.0" layoutY="555.0" mnemonicParsing="false" onAction="#adds" prefHeight="39.0" prefWidth="110.0" text="ADD SHOP" />
+                  <Button layoutX="787.0" layoutY="555.0" mnemonicParsing="false" onAction="#adds" prefHeight="39.0" prefWidth="110.0" text="ADD SHOP" />
                   <Label layoutX="72.0" layoutY="49.0" prefHeight="45.0" prefWidth="226.0" text="LIST OF SHOPS">
                      <font>
                         <Font size="30.0" />

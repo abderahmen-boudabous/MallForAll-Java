@@ -35,7 +35,38 @@ public class ShopService implements NewInterface<Shop> {
         }
     }
     
-    @Override
+    public void updateLike(int shopId, int newLikeValue) {
+    String sql = "UPDATE shop SET `like`=? WHERE id=?";
+    System.out.println("SQL: " + sql);
+
+    try {
+        PreparedStatement ps = cnx.prepareStatement(sql);
+        ps.setInt(1, newLikeValue);
+        ps.setInt(2, shopId);
+        ps.executeUpdate();
+        System.out.println("Like updated successfully!");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
+
+public void updateDislike(int shopId, int newDislikeValue) {
+    String sql = "UPDATE shop SET `dislike`=? WHERE id=?";
+
+    try {
+        PreparedStatement ps = cnx.prepareStatement(sql);
+        ps.setInt(1, newDislikeValue);
+        ps.setInt(2, shopId);
+        ps.executeUpdate();
+        System.out.println("Dislike updated successfully!");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
+
+    
+    
+   @Override
 public List<Shop> afficher() {
     List<Shop> shops = new ArrayList<>();
     sql = "SELECT * FROM shop";
@@ -43,8 +74,9 @@ public List<Shop> afficher() {
         Statement ste = cnx.createStatement();
         ResultSet rs = ste.executeQuery(sql);
         while (rs.next()) {
-            Shop s = new Shop(rs.getInt("id"), rs.getString("name"), rs.getString("description"),
-                    rs.getString("email"), rs.getString("user_s"), rs.getDate("date"), rs.getString("img"));
+            Shop s = new Shop(rs.getString("name"), rs.getString("description"),
+                    rs.getString("email"), rs.getString("user_s"), rs.getDate("date"), rs.getString("img"),
+                    rs.getInt("like"), rs.getInt("dislike"));
             shops.add(s);
         }
     } catch (SQLException ex) {
@@ -52,6 +84,7 @@ public List<Shop> afficher() {
     }
     return shops;
 }
+
 
     @Override
     public void supprimer(Shop s) {
@@ -108,5 +141,7 @@ public List<Shop> afficher() {
     }
     return shop;
 }
+
+    
 
 }
