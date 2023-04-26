@@ -34,49 +34,24 @@ public class ShopService implements NewInterface<Shop> {
             System.out.println(ex.getMessage());
         }
     }
-    /*
+    
     @Override
-public void ajouter(Shop s, String imagePath) {
-    sql = "INSERT INTO shop(name, description, email, user_s, date, img) VALUES (?, ?, ?, ?, ?, ?)";
+public List<Shop> afficher() {
+    List<Shop> shops = new ArrayList<>();
+    sql = "SELECT * FROM shop";
     try {
-        PreparedStatement ste = cnx.prepareStatement(sql);
-        ste.setString(1, s.getName());
-        ste.setString(2, s.getDescription());
-        ste.setString(3, s.getEmail());
-        ste.setString(4, s.getUser_s());
-        ste.setDate(5, s.getDate());
-        ste.setString(6, imagePath);
-
-        ste.executeUpdate();
-        System.out.println("Shop ajouté !");
+        Statement ste = cnx.createStatement();
+        ResultSet rs = ste.executeQuery(sql);
+        while (rs.next()) {
+            Shop s = new Shop(rs.getInt("id"), rs.getString("name"), rs.getString("description"),
+                    rs.getString("email"), rs.getString("user_s"), rs.getDate("date"), rs.getString("img"));
+            shops.add(s);
+        }
     } catch (SQLException ex) {
         System.out.println(ex.getMessage());
     }
-}*/
-
-    
-
-    @Override
-    public List<Shop> afficher() {
-        List<Shop> shops = new ArrayList<>();
-        sql="select * from shop";
-        try {
-            Statement ste = cnx.createStatement();
-            ResultSet rs=ste.executeQuery(sql);
-            while(rs.next()){
-                Shop s = new Shop(rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getString("email"),
-                        rs.getString("user_s"),
-                        rs.getDate("date"));
-                shops.add(s);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return shops;
-    }
+    return shops;
+}
 
     @Override
     public void supprimer(Shop s) {

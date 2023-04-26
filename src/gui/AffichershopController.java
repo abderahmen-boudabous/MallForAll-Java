@@ -129,16 +129,18 @@ public class AffichershopController implements Initializable {
     // make cell containing buttons
     final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
         @Override
+        
+        
         public void updateItem(String item, boolean empty) {
             super.updateItem(item, empty);
             if (empty) {
                 setGraphic(null);
                 setText(null);
             } else {
-                Button updateButton = new Button("Modifier");
+                Button updateButton = new Button("Update");
                updateButton.setStyle("-fx-background-color: #2196f3; -fx-text-fill: white; -fx-cursor: hand;");
                 updateButton.setOnAction((ActionEvent event) -> {
-                    // Deletes the selected product and refreshes the table
+                    
                     shop = shopView.getSelectionModel().getSelectedItem();
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("updateshop.fxml"));
 
@@ -169,7 +171,6 @@ public class AffichershopController implements Initializable {
     return cell;
 };
 
-        
         update.setCellFactory(cellFactory2);
         shopView.setItems(data);
 }

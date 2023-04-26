@@ -77,6 +77,8 @@ public class FXMLController implements Initializable {
     private TextField searchfield;
     
      private Connection cnx=MaConnexion.getInstance().getCnx();
+    @FXML
+    private TableColumn<Shop, ?> photo;
 
     /**
      * Initializes the controller class.
@@ -123,12 +125,13 @@ public void load() {
         refreshTable();
 
         // Sets the cell value factories for each column in the table
-      //  id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //  id.setCellValueFactory(new PropertyValueFactory<>("id"));
         user.setCellValueFactory(new PropertyValueFactory<>("user_s"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        
         
         
         

@@ -204,7 +204,7 @@ public class AjoutershopController implements Initializable {
         // Affichez l'image sélectionnée dans l'ImageView
         javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
         imageview.setImage(image);
-    } 
+    }
     
 }
     

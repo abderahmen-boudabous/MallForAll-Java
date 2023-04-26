@@ -13,10 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/gui/FXMLController.java</file>
-            <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/gui/UpdateproductController.java</file>
-            <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/gui/UpdateshopController.java</file>
+            <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/tn/esprit/services/ShopService.java</file>
             <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/gui/AjoutershopController.java</file>
-            <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/gui/AjouterproductController.java</file>
+            <file>file:/C:/Users/user/Desktop/java/PidevJ3A40/src/tn/esprit/entities/Shop.java</file>
         </group>
     </open-files>
 </project-private>
