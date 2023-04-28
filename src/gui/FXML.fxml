@@ -49,9 +49,9 @@
                         <TableColumn fx:id="update" maxWidth="151.0" minWidth="5.0" prefWidth="68.0" text="update" />
                      </columns>
                   </TableView>
-                  <TextField fx:id="tfadd" layoutX="835.0" layoutY="561.0" prefHeight="0.0" prefWidth="14.0" />
+                  <TextField fx:id="tfadd" layoutX="890.0" layoutY="561.0" prefHeight="0.0" prefWidth="14.0" />
                   <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />
-                  <Button layoutX="787.0" layoutY="555.0" mnemonicParsing="false" onAction="#adds" prefHeight="39.0" prefWidth="110.0" text="ADD SHOP" />
+                  <Button layoutX="842.0" layoutY="554.0" mnemonicParsing="false" onAction="#adds" prefHeight="39.0" prefWidth="110.0" text="ADD SHOP" />
                   <Label layoutX="72.0" layoutY="49.0" prefHeight="45.0" prefWidth="226.0" text="LIST OF SHOPS">
                      <font>
                         <Font size="30.0" />
@@ -64,6 +64,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
+                  <Button layoutX="725.0" layoutY="554.0" mnemonicParsing="false" onAction="#chart" prefHeight="39.0" prefWidth="110.0" text="CHART" />
                </children>
             </Pane>
          </children>

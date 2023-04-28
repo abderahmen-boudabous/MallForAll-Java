@@ -345,8 +345,18 @@ private void search(ActionEvent event) {
                             tfadd.getScene().setRoot(root);
                         } catch (IOException ex) {
                             System.out.println(ex.getMessage());
+                        } 
+    }
+
+    @FXML
+    private void chart(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("graphdataS.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tfadd.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
                         }
-        
     }
 }    
     

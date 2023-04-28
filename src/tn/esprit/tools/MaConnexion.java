@@ -41,6 +41,17 @@ public class MaConnexion {
     public Connection getCnx() {
         return cnx;
     }
+    public String getUrl() {
+        return url;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
     
     
     
