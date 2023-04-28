@@ -1,0 +1,9 @@
+.root {
+    
+    -fx-background-color: linear-gradient(to bottom right, #A67646, #5B9FC9);
+}
+.custom-button {
+ -fx-background-color: #007bff;    -fx-text-fill: #FFFFFF; /* text color */
+    -fx-font-size: 10pt; /* font size */
+    /* Add other CSS properties as needed */
+}

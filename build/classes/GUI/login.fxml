@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #B4A7D6;" styleClass="root" stylesheets="@../GUI/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.LoginController">
+    <children>
+        <Label layoutX="158.0" layoutY="4.0" text="Connexion">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="errorLabel" layoutX="74.0" layoutY="142.0" text="Label" visible="false">
+            <textFill>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="#e60000"/>
+                        <Stop color="WHITE" offset="1.0"/>
+                    </stops>
+                </RadialGradient>
+            </textFill>
+        </Label>
+        <TextField fx:id="emailTextField" layoutX="126.0" layoutY="55.0" promptText="Nom d'utilisateur"/>
+        <PasswordField fx:id="passwordTextField" layoutX="126.0" layoutY="92.0" promptText="Mot de passe"/>
+        <Button fx:id="loginButton" layoutX="158.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleLoginAction" styleClass="custom-button" text="Se connecter"/>
+        <Button fx:id="signupButton" layoutX="158.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleSignupAction" prefHeight="25.0" prefWidth="85.0" styleClass="custom-button" text="S'inscrire"/>
+        <ImageView fitHeight="93.0" fitWidth="114.0" layoutX="149.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/326402512_1918652385188567_1641704047332296297_n.png"/>
+            </image>
+        </ImageView>
+        <Hyperlink fx:id="mdp_oub" layoutX="145.0" layoutY="427.0" styleClass="hypertext-design" text="Mot de passe oublié ?">
+            <font>
+                <Font name="Microsoft Sans Serif" size="15.0"/>
+            </font>
+        </Hyperlink>
+    </children>
+</AnchorPane>
