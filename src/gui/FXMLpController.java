@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -15,6 +17,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -22,15 +26,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -82,6 +90,8 @@ public class FXMLpController implements Initializable {
     @FXML
     private TextField searchfield;
     private Connection cnx=MaConnexion.getInstance().getCnx();
+    @FXML
+    private TableColumn<Product, String> sale;
 
     /**
      * Initializes the controller class.
@@ -131,8 +141,19 @@ public class FXMLpController implements Initializable {
         //id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        stock.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        price.setCellValueFactory(new PropertyValueFactory<>("price"));
+        price.setCellValueFactory(cellData -> {
+    Float priceValue = cellData.getValue().getPrice();
+    String priceString = (priceValue == null) ? "" : String.format("%.2f DT", priceValue);
+    return new SimpleStringProperty(priceString);
+});
+
+stock.setCellValueFactory(cellData -> {
+    Integer stockValue = cellData.getValue().getStock();
+    String stockString = (stockValue == null || stockValue == 0) ? "Out of stock" : stockValue.toString();
+    return new SimpleStringProperty(stockString);
+});
+
+        
         
         shop.setCellValueFactory(cellData -> {
             ObjectProperty<String> nameProperty = new SimpleObjectProperty<>();
@@ -142,7 +163,35 @@ public class FXMLpController implements Initializable {
             }
             return nameProperty;
         });
+        
         photo.setCellValueFactory(new PropertyValueFactory<>("photo"));
+       photo.setCellFactory(column -> {
+    return new TableCell<Product, String>() {
+        private final ImageView imageView = new ImageView();
+        
+        {
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        }
+        
+        @Override
+        protected void updateItem(String imagePath, boolean empty) {
+            super.updateItem(imagePath, empty);
+            
+            if (empty || imagePath == null) {
+                setGraphic(null);
+            } else {
+                File imageFile = new File(imagePath);
+                javafx.scene.image.Image image = new javafx.scene.image.Image(imageFile.toURI().toString());
+                imageView.setImage(image);
+                setGraphic(imageView);
+            }
+        }
+    };
+});
+
+
+
+    
         
         
         Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactory = (TableColumn<Product, String> param) -> {
@@ -226,9 +275,78 @@ public class FXMLpController implements Initializable {
     };
     return cell;
 };
-
-        
+ 
         update.setCellFactory(cellFactory2);
+        
+        Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactory3 = (TableColumn<Product, String> param) -> {
+    final TableCell<Product, String> cell = new TableCell<Product, String>() {
+
+        private float originalPrice;
+
+        @Override
+        public void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                HBox buttonBox = new HBox();
+                buttonBox.setAlignment(Pos.CENTER);
+
+                ChoiceBox<String> choiceBox = new ChoiceBox<>();
+                choiceBox.getItems().addAll("10%", "15%", "20%");
+                choiceBox.setValue("10");
+
+                Button applyButton = new Button("Sale");
+                applyButton.setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-cursor: hand;");
+                applyButton.setOnAction((ActionEvent event) -> {
+                    Product product = getTableView().getItems().get(getIndex());
+
+                    // Save the original price
+                    originalPrice = product.getPrice();
+
+                    double discount = Double.parseDouble(choiceBox.getValue().replace("%", "")) / 100.0;
+                    double newPrice = originalPrice * (1 - discount);
+                    product.setPrice((float) newPrice);
+                    pp.update(product);
+                    refreshTable();
+                });
+
+
+                buttonBox.getChildren().addAll(choiceBox, applyButton);
+                setGraphic(buttonBox);
+                setText(null);
+            }
+        }
+    };
+    return cell;
+};
+
+sale.setCellFactory(cellFactory3);
+/*
+        photo.setCellFactory(column -> new TableCell<Product, String>() {
+    private final ImageView imageView = new ImageView();
+    
+    @Override
+    protected void updateItem(String photoPath, boolean empty) {
+        super.updateItem(photoPath, empty);
+        
+        if (empty || photoPath == null) {
+            setGraphic(null);
+        } else {
+            Image image = new Image(new File(photoPath).toURI().toString());
+            imageView.setImage(image);
+            imageView.setFitWidth(50);
+            imageView.setPreserveRatio(true);
+            setGraphic(imageView);
+        }
+    }
+});*/
+
+
+
+
+
         productView.setItems(data);
 }
      

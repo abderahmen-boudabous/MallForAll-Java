@@ -47,8 +47,7 @@
                               <TableColumn fx:id="img" prefWidth="136.0" text="PHOTO" />
                               <TableColumn fx:id="like" prefWidth="40.0" text="LIKES" />
                               <TableColumn fx:id="dislike" prefWidth="55.0" text="DISLIKES" />
-                              <TableColumn fx:id="likebutton" prefWidth="65.0" text="Like" />
-                              <TableColumn fx:id="dislikebutton" prefWidth="72.0" text="Dislike" />
+                              <TableColumn fx:id="likebutton" prefWidth="137.0" text="RATE" />
                            </columns>
                         </TableView>
                         <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />

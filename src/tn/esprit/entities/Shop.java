@@ -29,7 +29,19 @@ public class Shop {
         this.date = date;
         this.img = img;
     }
-
+    
+    public Shop(int id, String name, String description, String email, String user_s, Date date, String img, int like, int dislike) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.email = email;
+        this.user_s = user_s;
+        this.date = date;
+        this.img = img;
+        this.like = like;
+        this.dislike = dislike;
+    }
+    
     public Shop(int id, String name, String description, String email, String user_s, Date date/*, byte[] photo*/) {
         this.id = id;
         this.name = name;
@@ -61,6 +73,7 @@ public class Shop {
         this.like = like;
         this.dislike = dislike;
     }
+    
 
     
     public Shop(String name, String description, String email, String user_s, Date date) {      

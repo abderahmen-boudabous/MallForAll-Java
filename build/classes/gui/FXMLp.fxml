@@ -35,21 +35,22 @@
             </VBox>
             <Pane prefHeight="583.0" prefWidth="977.0">
                <children>
-                  <TextField fx:id="tete" layoutX="820.0" layoutY="550.0" prefHeight="25.0" prefWidth="0.0" />
-                  <TableView fx:id="productView" layoutX="33.0" layoutY="98.0" prefHeight="438.0" prefWidth="849.0">
+                  <TextField fx:id="tete" layoutX="862.0" layoutY="550.0" prefHeight="25.0" prefWidth="0.0" />
+                  <TableView fx:id="productView" layoutX="14.0" layoutY="98.0" prefHeight="438.0" prefWidth="939.0">
                      <columns>
                         <TableColumn fx:id="name" prefWidth="112.0" text="NAME" />
                         <TableColumn fx:id="type" prefWidth="84.0" text="TYPE" />
-                        <TableColumn fx:id="stock" prefWidth="92.0" text="STOCK" />
-                        <TableColumn fx:id="price" prefWidth="100.0" text="PRICE" />
-                        <TableColumn fx:id="shop" prefWidth="133.0" text="SHOP" />
-                        <TableColumn fx:id="photo" prefWidth="133.0" text="PHOTO" />
-                        <TableColumn fx:id="deletep" prefWidth="96.0" text="DELETE" />
-                        <TableColumn fx:id="update" prefWidth="98.0" text="UPDATE" />
+                        <TableColumn fx:id="stock" prefWidth="83.0" text="STOCK" />
+                        <TableColumn fx:id="price" prefWidth="85.0" text="PRICE" />
+                        <TableColumn fx:id="shop" prefWidth="116.0" text="SHOP" />
+                        <TableColumn fx:id="photo" prefWidth="136.0" text="PHOTO" />
+                        <TableColumn fx:id="deletep" prefWidth="99.0" text="DELETE" />
+                        <TableColumn fx:id="update" prefWidth="97.0" text="UPDATE" />
+                        <TableColumn fx:id="sale" prefWidth="134.0" text="SALE" />
                      </columns>
                   </TableView>
                   <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />
-                  <Button layoutX="772.0" layoutY="543.0" mnemonicParsing="false" onAction="#addp" prefHeight="39.0" prefWidth="110.0" text="ADD PRODUCT" />
+                  <Button layoutX="834.0" layoutY="543.0" mnemonicParsing="false" onAction="#addp" prefHeight="39.0" prefWidth="110.0" text="ADD PRODUCT" />
                   <Label layoutX="33.0" layoutY="47.0" prefHeight="45.0" prefWidth="293.0" text="LIST OF PRODUCTS">
                      <font>
                         <Font size="30.0" />

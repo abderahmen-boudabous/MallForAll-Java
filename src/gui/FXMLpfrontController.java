@@ -26,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -78,6 +79,9 @@ public class FXMLpfrontController implements Initializable {
     @FXML
     private TextField searchfield;
     private Connection cnx=MaConnexion.getInstance().getCnx();
+    
+
+
 
     /**
      * Initializes the controller class.
@@ -222,5 +226,37 @@ return;
                         }
         
     }
+
+    private void sortProducts(String option) {
+    switch (option) {
+        case "Price":
+            // Sort products by price (ascending order)
+            data.sort((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));
+            break;
+        case "Stock":
+            // Sort products by stock (descending order)
+            data.sort((p1, p2) -> Integer.compare(p2.getStock(), p1.getStock()));
+            break;
+        case "Name":
+            // Sort products by name (ascending order)
+            data.sort((p1, p2) -> p1.getName().compareToIgnoreCase(p2.getName()));
+            break;
+        default:
+            // Do nothing if an invalid option is selected
+            break;
+    }
+}
+
     
+    @FXML
+private void sortbyprice(ActionEvent event) {
+    sortProducts("Price");
+}
+
+@FXML
+private void sortbyname(ActionEvent event) {
+    sortProducts("Name");
+}
+
+
 }

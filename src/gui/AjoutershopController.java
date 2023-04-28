@@ -62,8 +62,6 @@ public class AjoutershopController implements Initializable {
     private ImageView imageview;
     
     private String filePath;
-    @FXML
-    private TextField AjouterImg;
 
     /**
      * Initializes the controller class.
@@ -137,7 +135,8 @@ private void ajoutershop(ActionEvent event) {
     }
 }
 
-public void image(ActionEvent event) {
+    @FXML
+    public void image(ActionEvent event) {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Choose Image File");
     fileChooser.getExtensionFilters().addAll(

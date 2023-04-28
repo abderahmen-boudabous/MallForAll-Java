@@ -35,7 +35,6 @@
             <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" layoutX="655.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" />
             <Button layoutX="755.0" layoutY="239.0" mnemonicParsing="false" onAction="#image" text="Choose image" />
             <Label layoutX="654.0" layoutY="243.0" text="Upload Image:" />
-            <TextField fx:id="AjouterImg" layoutX="435.0" layoutY="184.0" />
          </children>
       </Pane>
       <VBox prefHeight="783.0" prefWidth="231.0" style="-fx-background-color: #222a35;">

@@ -60,6 +60,9 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
+                        <Button layoutX="747.0" layoutY="538.0" mnemonicParsing="false" onAction="#sortbyprice" text="Price" />
+                        <Button layoutX="747.0" layoutY="569.0" mnemonicParsing="false" onAction="#sortbyname" text="Name" />
+                        <Label layoutX="689.0" layoutY="557.0" text="Sort by :" />
                      </children>
                   </Pane>
                </children>

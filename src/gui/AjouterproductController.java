@@ -13,11 +13,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -182,10 +185,7 @@ public class AjouterproductController implements Initializable {
     });
     alert.showAndWait();
 }
-
-        
-        
-        
+       
     }
 
     @FXML
@@ -199,29 +199,49 @@ public class AjouterproductController implements Initializable {
                             System.out.println(ex.getMessage());
                         }
     }
-
     @FXML
-    private void image(ActionEvent event) {
-        
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Selection une image");
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png, *.gif)", ".jpg", ".jpeg", ".png", "*.gif");
-        fileChooser.getExtensionFilters().add(extFilter);
-        File file = fileChooser.showOpenDialog(null);
-        if (file == null) {
-            // User didn't select a file
-            return;
+    public void image(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Choose Image File");
+    fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+    );
+    File selectedFile = fileChooser.showOpenDialog(null);
+    if (selectedFile != null) {
+        try {
+            String destPath = "D:/xampp/htdocs/aa/" + selectedFile.getName();
+            Files.copy(selectedFile.toPath(), new File(destPath).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("File uploaded to " + destPath);
+            filePath = destPath; // update the filePath variable with the selected file path
+        } catch (IOException ex) {
+            System.err.println("Error uploading file: " + ex.getMessage());
         }
-        // Stockez le chemin d'accès du fichier sélectionné
-        filePath = file.getAbsolutePath();
-
-        // Affichez l'image sélectionnée dans l'ImageView
-        javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
-        imageview.setImage(image);
+    } else {
+        System.out.println("No file selected.");
     }
-    
-    
-        
+}
+
+private void showAlert(String title, String message) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle(title);
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    alert.showAndWait();
+}
+
+private void showAlertWithAction(String title, String message, EventHandler<ActionEvent> action) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(title);
+    alert.setHeaderText(message);
+    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+    alert.getButtonTypes().setAll(okButton);
+    Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
+    okBtn.setOnAction(action);
+    alert.showAndWait();
+}
+          
 }
     
 

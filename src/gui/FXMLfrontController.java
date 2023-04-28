@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -78,8 +81,6 @@ public class FXMLfrontController implements Initializable {
     @FXML
     private TableColumn<Shop, String> likebutton;
     @FXML
-    private TableColumn<Shop, String> dislikebutton;
-    @FXML
     private TableColumn<Shop, String> img;
 
     /**
@@ -136,131 +137,48 @@ public class FXMLfrontController implements Initializable {
     dislike.setCellValueFactory(new PropertyValueFactory<>("dislike"));
     
   
-            Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
-            // make cell containing buttons
-            final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        Button likeButton = new Button("Like");
-                        likeButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;");
-                        likeButton.setOnAction((ActionEvent event) -> {
-                            // Increases the "like" count and refreshes the table
-                            Shop shop = getTableView().getItems().get(getIndex());
-                            shop.setLike(shop.getLike() + 1);
-                            getTableView().refresh();
-                        });
-                        HBox manageBtn = new HBox(likeButton);
-                        manageBtn.setStyle("-fx-alignment:center");
-                        setGraphic(manageBtn);
-                        setText(null);
-                    }
-                }
-            };
-            return cell;
-        };        
-        likebutton.setCellFactory(cellFactory);
-        Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory2 = (TableColumn<Shop, String> param) -> {
-            // make cell containing buttons
-            final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        Button likeButton = new Button("Dislike");
-                        likeButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-cursor: hand;");
-                        likeButton.setOnAction((ActionEvent event) -> {
-                            // Increases the "like" count and refreshes the table
-                            Shop shop = getTableView().getItems().get(getIndex());
-                            shop.setDislike(shop.getDislike() + 1);
-                            getTableView().refresh();
-                        });
-                        HBox manageBtn = new HBox(likeButton);
-                        manageBtn.setStyle("-fx-alignment:center");
+           Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
+    final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
+        @Override
+        public void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                Button likeButton = new Button("Like");
+                likeButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;");
+                likeButton.setOnAction((ActionEvent event) -> {
+                    // Increases the "like" count and refreshes the table
+                    Shop shop = getTableView().getItems().get(getIndex());
+                    shop.setLike(shop.getLike() + 1);
+                    sp.updatel(shop);
+                    getTableView().refresh();
+                });
+                Button dislikeButton = new Button("Dislike");
+                dislikeButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white; -fx-cursor: hand;");
+                dislikeButton.setOnAction((ActionEvent event) -> {
+                    // Decreases the "dislike" count and refreshes the table
+                    Shop shop = getTableView().getItems().get(getIndex());
+                    shop.setDislike(shop.getDislike() + 1);
+                    sp.updatel(shop);
+                    getTableView().refresh();
+                });
+                HBox buttonsContainer = new HBox(likeButton, dislikeButton);
+                buttonsContainer.setStyle("-fx-alignment:center");
+                setGraphic(buttonsContainer);
+                setText(null);
+            }
+        }
+    };
+    return cell;
+};
+likebutton.setCellFactory(cellFactory);
 
-                        setGraphic(manageBtn);
-                        setText(null);
-                    }
-                }
-            };
-            return cell;
-        };        
-        dislikebutton.setCellFactory(cellFactory2);
+
 
 /**********************************************************************************************************/
-/*
-    Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory = (TableColumn<Shop, String> param) -> {
-        // make cell containing buttons
-        final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
-            @Override
-            public void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    setText(null);
-                } else {
-                    Button likeButton = new Button("Like");
-                    likeButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;");
-                    likeButton.setOnAction((ActionEvent event) -> {
-                        // Increases the "like" count, updates the database, and refreshes the table
-                        Shop shop = getTableView().getItems().get(getIndex());
-                        int newLikeValue = shop.getLike() + 1;
-                        shop.setLike(newLikeValue);
-                        sp.updateLike(shop.getId(), newLikeValue);
-                        refreshTable();
-                    });
-                    HBox manageBtn = new HBox(likeButton);
-                    manageBtn.setStyle("-fx-alignment:center");
 
-                    setGraphic(manageBtn);
-                    setText(null);
-                }
-            }
-        };
-        return cell;
-    };
-    likebutton.setCellFactory(cellFactory);
-
-    Callback<TableColumn<Shop, String>, TableCell<Shop, String>> cellFactory2 = (TableColumn<Shop, String> param) -> {
-        // make cell containing buttons
-        final TableCell<Shop, String> cell = new TableCell<Shop, String>() {
-            @Override
-            public void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    setText(null);
-                } else {
-                    Button likeButton = new Button("Dislike");
-                    likeButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-cursor: hand;");
-                    likeButton.setOnAction((ActionEvent event) -> {
-                        // Increases the "dislike" count, updates the database, and refreshes the table
-                        Shop shop = getTableView().getItems().get(getIndex());
-                        int newDislikeValue = shop.getDislike() + 1;
-                        shop.setDislike(newDislikeValue);
-                        sp.updateDislike(shop.getId(), newDislikeValue);
-                        refreshTable();
-                    });
-                    HBox manageBtn = new HBox(likeButton);
-                    manageBtn.setStyle("-fx-alignment:center");
-
-                    setGraphic(manageBtn);
-                    setText(null);
-                }
-            }
-        };
-        return cell;
-    };
-    dislikebutton.setCellFactory(cellFactory2);
-
-*/
     shopView.setItems(data);
 }
 
@@ -346,4 +264,5 @@ private void search(ActionEvent event) {
                         }
         
     }
+
 }

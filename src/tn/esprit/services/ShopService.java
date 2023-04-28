@@ -34,61 +34,34 @@ public class ShopService implements NewInterface<Shop> {
                 System.out.println(ex.getMessage());
             }
             }
-    
-    public void updateLike(int shopId, int newLikeValue) {
-    String sql = "UPDATE shop SET `like`=? WHERE id=?";
-    System.out.println("SQL: " + sql);
-
-    try {
-        PreparedStatement ste = cnx.prepareStatement(sql);
-        ste.setInt(1, newLikeValue);
-        ste.setInt(2, shopId);
-        ste.executeUpdate();
-        System.out.println("Like updated successfully!");
-    } catch (SQLException ex) {
-        System.out.println(ex.getMessage());
-    }
-}
-
-public void updateDislike(int shopId, int newDislikeValue) {
-    String sql = "UPDATE shop SET `dislike`=? WHERE id=?";
-    System.out.println("SQL: " + sql);
-    try {
-        PreparedStatement ste = cnx.prepareStatement(sql);
-        ste.setInt(1, newDislikeValue);
-        ste.setInt(2, shopId);
-        ste.executeUpdate();
-        System.out.println("Dislike updated successfully!");
-    } catch (SQLException ex) {
-        System.out.println(ex.getMessage());
-    }
-}
-
-    
+   
 
     @Override
-    public List<Shop> afficher() {
-        List<Shop> shops = new ArrayList<>();
-        sql="select * from shop";
-        try {
-            Statement ste = cnx.createStatement();
-            ResultSet rs=ste.executeQuery(sql);
-            while(rs.next()){
-                Shop s = new Shop(rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getString("email"),
-                        rs.getString("user_s"),
-                        rs.getDate("date"),
-                rs.getString("img"));
-                        
-                shops.add(s);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+public List<Shop> afficher() {
+    List<Shop> shops = new ArrayList<>();
+    sql="select * from shop";
+    try {
+        Statement ste = cnx.createStatement();
+        ResultSet rs=ste.executeQuery(sql);
+        while(rs.next()){
+            Shop s = new Shop(rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("description"),
+                    rs.getString("email"),
+                    rs.getString("user_s"),
+                    rs.getDate("date"),
+                    rs.getString("img"),
+                    rs.getInt("like"),
+                    rs.getInt("dislike"));
+
+            shops.add(s);
         }
-        return shops;
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
     }
+    return shops;
+}
+
 
     @Override
     public void supprimer(Shop s) {
@@ -113,6 +86,7 @@ public void updateDislike(int shopId, int newDislikeValue) {
             ste.setString(4, s.getUser_s());
             ste.setDate(5, s.getDate());
             ste.setInt(6, s.getId());
+            
 
             int rowsUpdated = ste.executeUpdate();
             if (rowsUpdated > 0) {
@@ -124,6 +98,19 @@ public void updateDislike(int shopId, int newDislikeValue) {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void updatel(Shop shop) {
+    try {
+        PreparedStatement ps = cnx.prepareStatement("UPDATE shop SET `like`=?, `dislike`=? WHERE id=?");
+        ps.setInt(1, shop.getLike());
+        ps.setInt(2, shop.getDislike());
+        ps.setInt(3, shop.getId());
+        ps.executeUpdate();
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
+
 
     public Shop findById(int id) {
     Shop shop = null;

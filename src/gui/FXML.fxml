@@ -35,16 +35,18 @@
             </VBox>
             <Pane prefHeight="583.0" prefWidth="977.0">
                <children>
-                  <TableView fx:id="shopView" layoutX="59.0" layoutY="101.0" prefHeight="442.0" prefWidth="838.0">
+                  <TableView fx:id="shopView" layoutX="14.0" layoutY="94.0" prefHeight="442.0" prefWidth="939.0">
                      <columns>
                         <TableColumn fx:id="user" prefWidth="54.0" text="OWNER" />
                         <TableColumn fx:id="name" prefWidth="74.0" text="SHOP" />
-                        <TableColumn fx:id="description" prefWidth="250.0" text="DESCRIPTION" />
-                        <TableColumn fx:id="email" minWidth="0.0" prefWidth="110.0" text="EMAIL" />
-                        <TableColumn fx:id="date" prefWidth="100.0" text="DATE" />
-                        <TableColumn fx:id="img" prefWidth="100.0" text="PHOTO" />
-                        <TableColumn fx:id="deletes" prefWidth="72.0" text="delete" />
-                        <TableColumn fx:id="update" minWidth="5.0" prefWidth="78.0" text="update" />
+                        <TableColumn fx:id="description" prefWidth="210.0" text="DESCRIPTION" />
+                        <TableColumn fx:id="email" minWidth="0.0" prefWidth="117.0" text="EMAIL" />
+                        <TableColumn fx:id="date" prefWidth="95.0" text="DATE" />
+                        <TableColumn fx:id="img" prefWidth="167.0" text="PHOTO" />
+                        <TableColumn fx:id="likes" prefWidth="36.0" text="LIKES" />
+                        <TableColumn fx:id="dislikes" prefWidth="61.0" text="DISLIKES" />
+                        <TableColumn fx:id="deletes" minWidth="0.0" prefWidth="56.0" text="delete" />
+                        <TableColumn fx:id="update" maxWidth="151.0" minWidth="5.0" prefWidth="68.0" text="update" />
                      </columns>
                   </TableView>
                   <TextField fx:id="tfadd" layoutX="835.0" layoutY="561.0" prefHeight="0.0" prefWidth="14.0" />
