@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,53 +8,68 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import tn.esprit.entities.Product;
 import tn.esprit.tools.MaConnexion;
 
-/**
- * FXML Controller class
- *
- * @author user
- */
 public class GraphdataController implements Initializable {
 
     @FXML
     private AnchorPane main_form;
     @FXML
-    private BarChart<?, ?> BarChart;
+    private BarChart<String, Integer> BarChart;
     
-    private Connection connect;
-    private Connection cnx=MaConnexion.getInstance().getCnx();
+    private Connection cnx = MaConnexion.getInstance().getCnx();
     private PreparedStatement prepare;
     private ResultSet result;
-    
+    @FXML
+    private TextField tete;
 
-    /**
-     * Initializes the controller class.
-     */
-    
-    public Connection connectDB() throws ClassNotFoundException, SQLException {
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mffa", "root", "");
-    System.out.println("Connection established!!");
-    return con;
-}
+    public void chart() {
+        String chartSql = "SELECT name, stock FROM product";
 
-    
-    
-    public void chart() throws ClassNotFoundException, SQLException{
-        String chartSql ="SELECT date, SUM(total) FROM income GROUP BY date ASC LIMIT 8 ";
-        
-        connect =connectDB();
+
+        try {
+            prepare = cnx.prepareStatement(chartSql);
+            result = prepare.executeQuery();
+
+            XYChart.Series<String, Integer> chartData = new XYChart.Series<>();
+            while (result.next()) {
+                String name = result.getString("name");
+                int stock = result.getInt("stock");
+                chartData.getData().add(new XYChart.Data<>(name, stock));
+            }
+
+            BarChart.getData().add(chartData);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        chart();
+    }
+
+    @FXML
+    private void Back(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLp.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tete.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
 }

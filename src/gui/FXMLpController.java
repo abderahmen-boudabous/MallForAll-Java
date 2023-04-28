@@ -443,6 +443,18 @@ return;
                         }
         
     }
+
+    @FXML
+    private void datachart(ActionEvent event) {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("graphdata.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            tete.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+    }
     
     
 }
