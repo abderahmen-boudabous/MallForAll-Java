@@ -16,24 +16,24 @@ public class ShopService implements NewInterface<Shop> {
         cnx= MaConnexion.getInstance().getCnx();
     }
 
-    @Override
-    public void ajouter(Shop s) {
-        sql = "INSERT INTO shop(name, description, email, user_s, date, img) VALUES (?, ?, ?, ?, ?, ?)";
-        try {
+                @Override
+            public void ajouter(Shop s) {
+            sql = "INSERT INTO shop(name, description, email, user_s, date, img) VALUES (?, ?, ?, ?, ?, ?)";
+            try {
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setString(1, s.getName());
             ste.setString(2, s.getDescription());
             ste.setString(3, s.getEmail());
             ste.setString(4, s.getUser_s());
-            ste.setDate(5, s.getDate());
+            ste.setDate(5, s.getDate()); // set the value for the fifth parameter "date"
             ste.setString(6, s.getImg());
-
             ste.executeUpdate();
-            System.out.println("Shop ajouté !");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+
+                System.out.println("Shop ajouté !");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            }
     
     public void updateLike(int shopId, int newLikeValue) {
     String sql = "UPDATE shop SET `like`=? WHERE id=?";

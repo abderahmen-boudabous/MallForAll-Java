@@ -6,7 +6,12 @@
 package gui;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -200,7 +205,7 @@ public class AjouterproductController implements Initializable {
         
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Selection une image");
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (.jpg, *.png, *.gif)", ".jpg", ".jpeg", ".png", "*.gif");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg, *.png, *.gif)", ".jpg", ".jpeg", ".png", "*.gif");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(null);
         if (file == null) {
@@ -214,6 +219,8 @@ public class AjouterproductController implements Initializable {
         javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
         imageview.setImage(image);
     }
+    
+    
         
 }
     
