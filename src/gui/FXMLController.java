@@ -140,13 +140,15 @@ public void load() {
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         
-        img.setCellValueFactory(new PropertyValueFactory<>("img"));
-       img.setCellFactory(column -> {
+       img.setCellValueFactory(new PropertyValueFactory<>("img"));
+img.setCellFactory(column -> {
     return new TableCell<Shop, String>() {
         private final ImageView imageView = new ImageView();
         
         {
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+            imageView.setFitWidth(100); // set the desired width
+            imageView.setFitHeight(100); // set the desired height
         }
         
         @Override
@@ -164,6 +166,8 @@ public void load() {
         }
     };
 });
+
+
        likes.setCellValueFactory(new PropertyValueFactory<>("like"));
        dislikes.setCellValueFactory(new PropertyValueFactory<>("dislike"));
         

@@ -169,9 +169,13 @@ stock.setCellValueFactory(cellData -> {
     return new TableCell<Product, String>() {
         private final ImageView imageView = new ImageView();
         
-        {
+        
+            {
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+            imageView.setFitWidth(100); // set the desired width
+            imageView.setFitHeight(100); // set the desired height
         }
+        
         
         @Override
         protected void updateItem(String imagePath, boolean empty) {
