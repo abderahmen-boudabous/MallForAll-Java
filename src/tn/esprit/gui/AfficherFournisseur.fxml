@@ -10,32 +10,35 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.AfficherFournisseurController">
     
-   <TableView fx:id="categoriesTable" layoutY="168.0" prefHeight="160.0" prefWidth="718.0">
+    <TableView fx:id="categoriesTable" layoutY="168.0" prefHeight="160.0" prefWidth="900.0">
         <columns>
-            <TableColumn fx:id="idColumn" prefWidth="35.0" text="ID" />
+            
             <TableColumn fx:id="NomColumn" prefWidth="84.0" text="Nom" />
             <TableColumn fx:id="TelColumn" prefWidth="77.0" text="Tel" />
             <TableColumn fx:id="AddressColumn" prefWidth="102.0" text="Address" />
             <TableColumn fx:id="EmailColumn" minWidth="0.0" prefWidth="150.0" text="Email" />
             <TableColumn fx:id="CategorieColumn" prefWidth="90.0" text="Categorie" />
-            <TableColumn fx:id="actionColumn" prefWidth="242.0" text="action" />
+            <TableColumn fx:id="SiteWebColumn" prefWidth="157.0" text="Site Web" />
+            <TableColumn fx:id="ImgColumn" prefWidth="157.0" text="Image" />
+            <TableColumn fx:id="actionColumn" prefWidth="90.0" text="action" />
         </columns>
     </TableView>
-   <Button fx:id="btAjoutF" layoutX="235.0" layoutY="336.0" mnemonicParsing="false" onAction="#RedirectionAjouter" prefHeight="25.0" prefWidth="251.0" text="Ajouter Un Fournisseur" textFill="#0cdad3" />
-   <Label layoutX="264.0" layoutY="8.0" text="Admin Dashboard" textFill="#0dc7e8">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-   <Label layoutX="226.0" layoutY="51.0" prefHeight="35.0" prefWidth="301.0" text="La Liste Des Fournisseurs" textFill="#0dc7e8">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-   <ToolBar layoutX="177.0" layoutY="95.0" prefHeight="35.0" prefWidth="367.0">
-      <items>
-         <Button fx:id="btCategorie" mnemonicParsing="false" onAction="#RedirectionCategorie" prefHeight="25.0" prefWidth="173.0" text="Categories Des Fournisseurs" textFill="#0eaadd" />
-         <Button fx:id="btFournisseur" mnemonicParsing="false" onAction="#RedirectionFournisseur" prefHeight="25.0" prefWidth="176.0" text="Fournisseurs" textFill="#0d9cbf" />
-      </items>
-   </ToolBar>
+    <Button fx:id="btAjoutF" layoutX="252.0" layoutY="137.0" mnemonicParsing="false" onAction="#RedirectionAjouter" prefHeight="25.0" prefWidth="251.0" text="Ajouter Un Fournisseur" textFill="#0cdad3" />
+    <Label layoutX="377.0" layoutY="14.0" text="Admin Dashboard" textFill="#0dc7e8">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="323.0" layoutY="49.0" prefHeight="35.0" prefWidth="301.0" text="La Liste Des Fournisseurs" textFill="#0dc7e8">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <ToolBar layoutX="273.0" layoutY="84.0" prefHeight="35.0" prefWidth="367.0">
+        <items>
+            <Button fx:id="btCategorie" mnemonicParsing="false" onAction="#RedirectionCategorie" prefHeight="25.0" prefWidth="173.0" text="Categories Des Fournisseurs" textFill="#0eaadd" />
+            <Button fx:id="btFournisseur" mnemonicParsing="false" onAction="#RedirectionFournisseur" prefHeight="25.0" prefWidth="176.0" text="Fournisseurs" textFill="#0d9cbf" />
+        </items>
+    </ToolBar>
+    <Button fx:id="btModifier" layoutX="523.0" layoutY="137.0" mnemonicParsing="false" onAction="#modifier" text="Modifier un Fournisseur" textFill="#0ce1e4" />
 </AnchorPane>

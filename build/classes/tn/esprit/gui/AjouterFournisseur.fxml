@@ -15,7 +15,6 @@
       <TextField fx:id="tfAddress" layoutX="260.0" layoutY="200.0" />
       <TextField fx:id="tfEmail" layoutX="260.0" layoutY="229.0" />
       <TextField fx:id="tfSiteWeb" layoutX="260.0" layoutY="259.0" />
-      <TextField fx:id="tfImage" layoutX="260.0" layoutY="291.0" />
       <ToolBar layoutX="113.0" layoutY="59.0" prefHeight="35.0" prefWidth="368.0">
          <items>
 
@@ -70,5 +69,6 @@
       </Label>
       <ChoiceBox fx:id="boxCategorie" layoutX="260.0" layoutY="320.0" prefWidth="150.0" />
       <Button fx:id="AjouterF" layoutX="202.0" layoutY="354.0" mnemonicParsing="false" onAction="#AjouterFournisseur" prefHeight="25.0" prefWidth="150.0" text="ajouter" />
+      <Button fx:id="AjouterImg" layoutX="260.0" layoutY="291.0" mnemonicParsing="false" onAction="#AjouterImage" prefHeight="25.0" prefWidth="150.0" text="import " />
    </children>
 </AnchorPane>

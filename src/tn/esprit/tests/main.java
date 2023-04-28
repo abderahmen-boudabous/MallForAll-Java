@@ -17,10 +17,10 @@ import tn.esprit.tools.MaConnexion;
 public class main {
      public static void main(String[] args) {
         FournisseurService cf = new FournisseurService();
-        CategorieF c = new CategorieF(21);
+        CategorieF c = new CategorieF(21 , "aa");
         Fournisseur f = new Fournisseur(38,"nike",12345678,"tunis","ha@gmail.com","haaa","haaa",c);
         //cf.ajouter(f);
         
-         System.out.println(cf.afficher());
+         System.out.println(c);
 }
 }

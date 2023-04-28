@@ -11,7 +11,6 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.AfficherCategorieController">
     <TableView fx:id="categoriesTable" layoutX="100.0" layoutY="135.0" prefHeight="207.0" prefWidth="400.0">
         <columns>
-            <TableColumn fx:id="idColumn" prefWidth="120.0" text="ID" />
             <TableColumn fx:id="libelleColumn" prefWidth="129.0" text="Libellé" />
             <TableColumn fx:id="actionColumn" prefWidth="150.0" text="Actions" />
         </columns>

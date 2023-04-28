@@ -65,7 +65,7 @@ public class AfficherCategorieController implements Initializable {
         categoriesTable.setItems(categories);
 
         // Configurer les colonnes de la table
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+       // idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         libelleColumn.setCellValueFactory(new PropertyValueFactory<>("libelle"));
 
         actionColumn.setCellFactory(param -> new TableCell<CategorieF, Void>() {

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +25,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tn.esprit.entities.CategorieF;
 import tn.esprit.entities.Fournisseur;
@@ -51,6 +54,10 @@ public class AfficherFournisseurController implements Initializable {
     @FXML
     private TableColumn<Fournisseur, String> CategorieColumn;
     @FXML
+    private TableColumn<Fournisseur, String> SiteWebColumn;
+    @FXML
+    private TableColumn<Fournisseur, String>  ImgColumn;
+    @FXML
     private TableColumn<Fournisseur, Void> actionColumn;
     @FXML
     private Button btAjoutF;
@@ -58,6 +65,17 @@ public class AfficherFournisseurController implements Initializable {
     private Button btCategorie;
     @FXML
     private Button btFournisseur;
+    @FXML
+    private Button btModifier;
+    @FXML
+    private AnchorPane rootPane;
+    static Integer id;
+    static String nom;
+    static Integer tel;
+    static String email;
+    static String address;
+    static String siteweb;
+    static CategorieF categorie;
 
     /**
      * Initializes the controller class.
@@ -66,20 +84,28 @@ public class AfficherFournisseurController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         FournisseurService cs = new FournisseurService();
         ArrayList<Fournisseur> f = (ArrayList<Fournisseur>) cs.afficher();
-        // Récupérer la liste de catégories depuis une source de données
+        // Récupérer depuis une source de données
         ObservableList<Fournisseur> fournisseurs = FXCollections.observableArrayList(f);
 
-        // Ajouter les catégories à la table
+        // Ajouter  à la table
         categoriesTable.setItems(fournisseurs);
 
         // Configurer les colonnes de la table
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        // idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         NomColumn.setCellValueFactory(new PropertyValueFactory<>("Nom"));
         TelColumn.setCellValueFactory(new PropertyValueFactory<>("Tel"));
         AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
         EmailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        CategorieColumn.setCellValueFactory(new PropertyValueFactory<>("Categorie"));
-        
+        CategorieColumn.setCellValueFactory(cellData -> {
+            ObjectProperty<String> nameProperty = new SimpleObjectProperty<>();
+            CategorieF c = cellData.getValue().getCategorieId();
+            if (c != null) {
+                nameProperty.set(c.getLibelle());
+            }
+            return nameProperty;
+        });
+          SiteWebColumn.setCellValueFactory(new PropertyValueFactory<>("website"));
+        ImgColumn.setCellValueFactory(new PropertyValueFactory<>("img"));
 
         actionColumn.setCellFactory(param -> new TableCell<Fournisseur, Void>() {
             private final Button deleteButton = new Button("Supprimer");
@@ -87,10 +113,10 @@ public class AfficherFournisseurController implements Initializable {
             {
                 deleteButton.setOnAction(event -> {
                     Fournisseur f = (Fournisseur) getTableRow().getItem();
-                    // Supprimer le rendez-vous de la base de données
+                    // Supprimer de la base de données
 
                     cs.supprimer(f);
-                    // Supprimer le rendez-vous de la table
+                    // Supprimer de la table
                     getTableView().getItems().remove(f);
                 });
             }
@@ -105,37 +131,58 @@ public class AfficherFournisseurController implements Initializable {
                     setGraphic(deleteButton);
                 }
             }
+
         });
-    }    
+    }
 
     @FXML
     private void RedirectionAjouter(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AJouterFournisseur.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
-     @FXML
+    @FXML
     private void RedirectionCategorie(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorie.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     private void RedirectionFournisseur(ActionEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherFournisseur.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherFournisseur.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
+    @FXML
+    private void modifier(ActionEvent event) throws IOException {
+        TableView<Fournisseur> t = categoriesTable;
+        Fournisseur f = t.getSelectionModel().getSelectedItem(); // use getSelectedItem() to get the selected item, not getSelectedItems()
+        id = f.getId();
+        nom = f.getNom();
+        tel = f.getTel();
+        email = f.getEmail();
+        address = f.getAddress();
+        siteweb = f.getWebsite();
+        categorie = f.getCategorieId();
+
+     
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateFournisseur.fxml")); 
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
