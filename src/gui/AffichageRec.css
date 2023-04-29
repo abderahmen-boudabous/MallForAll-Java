@@ -1,0 +1,115 @@
+/* Style global */
+.root {
+    -fx-background-color: #F4F4F4;
+    -fx-font-size: 14px;
+}
+
+/* Style pour le titre de la fenêtre */
+.title-bar {
+    -fx-background-color: #2B2B2B;
+}
+
+.title-bar > .label {
+    -fx-text-fill: white;
+}
+
+/* Style pour les boutons de la barre de titre */
+.title-bar > .button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.title-bar > .button:hover {
+    -fx-background-color: #4A4A4A;
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: white;
+    -fx-padding: 5px 5px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.button:hover {
+    -fx-background-color: #4A4A4A;
+}
+
+/* Style pour les champs de texte */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 0;
+    -fx-padding: 5px;
+}
+
+/* Style pour les tables */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F4F4F4;
+}
+
+.table-view .column-header {
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #F4F4F4;
+}
+
+/* Style pour les menus */
+.menu-bar {
+    -fx-background-color: #2B2B2B;
+}
+
+.menu-bar .menu {
+    -fx-background-color: #CCCCCC;
+}
+
+.menu-bar .menu .label {
+    -fx-text-fill: white;
+}
+
+.menu-bar .menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 10px;
+}
+
+.menu-bar .menu .menu-item:hover {
+    -fx-background-color: #4A4A4A;
+}
+
+/* Style pour les alertes */
+.dialog-pane .label {
+    -fx-font-size: 10px;
+}
+
+.dialog-pane .content .label {
+    -fx-font-size: 8px;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: white;
+    -fx-padding: 6px 10px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #4A4A4A;
+}

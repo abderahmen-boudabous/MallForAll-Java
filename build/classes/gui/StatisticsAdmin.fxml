@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsAdminController">
+    <children>
+        <BarChart fx:id="StatsChart" layoutX="35.0" layoutY="30.0" prefHeight="340.0" prefWidth="530.0" title="Statistiques Réclamations">
+            <xAxis>
+                <CategoryAxis fx:id="categoryAxis" label="Type de Réclamation" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="numberAxis" label="Nombre de Réclamations" />
+            </yAxis>
+        </BarChart>
+        <Label layoutX="276.0" layoutY="14.0" prefHeight="17.0" prefWidth="68.0" text="BarChart" />
+      <ImageView fx:id="GoBackBtn" fitHeight="56.0" fitWidth="99.0" layoutX="491.0" layoutY="330.0" onMouseClicked="#GoBk" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/téléchargement.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

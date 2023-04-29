@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierReclamationController">
+   <children>
+      <TextField fx:id="Etat_reclamation" layoutX="77.0" layoutY="83.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextArea fx:id="Text_reponse" layoutX="77.0" layoutY="155.0" prefHeight="196.0" prefWidth="200.0" />
+      <Label layoutX="301.0" layoutY="82.0" prefHeight="27.0" prefWidth="166.0" text="Etat_reclamation" textFill="#bc9f1e">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="301.0" layoutY="155.0" prefHeight="27.0" prefWidth="136.0" text="Text_reponse" textFill="#bc9f1e">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="131.0" layoutY="23.0" prefHeight="38.0" prefWidth="313.0" text="Modifier votre Reclamation" textFill="#e8e6e0">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="modifierB" layoutX="408.0" layoutY="342.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: bc9f1e;" text="Valider" textFill="#0d0d0d" />
+      <ImageView fitHeight="48.0" fitWidth="153.0" layoutX="465.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/333199419_200992245868457_2286414934692578680_n.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
