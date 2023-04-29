@@ -13,13 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLfrontController">
+<AnchorPane id="AnchorPane" prefHeight="700" prefWidth="1300" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLfrontController">
+
    <children>
       <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
          <children>
             <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="608.0" prefWidth="1186.0">
                <children>
-                  <VBox prefHeight="570.0" prefWidth="210.0" style="-fx-background-color: #222a35;">
+                  <VBox prefHeight="633.0" prefWidth="226.0" style="-fx-background-color: #222a35;">
                      <children>
                         <Pane prefHeight="163.0" prefWidth="209.0" style="-fx-background-color: #222a35;">
                            <children>
@@ -35,7 +36,7 @@
                         <Button fx:id="pproducts" mnemonicParsing="false" prefHeight="65.0" prefWidth="209.0" text="Products" />
                      </children>
                   </VBox>
-                  <Pane prefHeight="583.0" prefWidth="977.0">
+                  <Pane prefHeight="774.0" prefWidth="969.0">
                      <children>
                         <TableView fx:id="shopView" layoutX="14.0" layoutY="100.0" prefHeight="442.0" prefWidth="958.0">
                            <columns>
@@ -50,7 +51,7 @@
                               <TableColumn fx:id="likebutton" prefWidth="137.0" text="RATE" />
                            </columns>
                         </TableView>
-                        <Pane prefHeight="39.0" prefWidth="977.0" style="-fx-background-color: #222a35;" />
+                        <Pane prefHeight="39.0" prefWidth="1091.0" style="-fx-background-color: #222a35;" />
                         <Label layoutX="72.0" layoutY="49.0" prefHeight="45.0" prefWidth="226.0" text="LIST OF SHOPS">
                            <font>
                               <Font size="30.0" />

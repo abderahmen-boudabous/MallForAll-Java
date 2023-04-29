@@ -142,6 +142,8 @@ public class FXMLfrontController implements Initializable {
         
         {
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+            imageView.setFitWidth(100); // set the desired width
+            imageView.setFitHeight(100); // set the desired height
         }
         
         @Override
