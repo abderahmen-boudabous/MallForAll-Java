@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficherController">
+   <children>
+      <ListView fx:id="lview" accessibleRole="CHECK_MENU_ITEM" layoutX="11.0" layoutY="71.0" prefHeight="164.0" prefWidth="579.0">
+         <effect>
+            <DropShadow color="#4d2a2a" />
+         </effect></ListView>
+      <Label layoutX="183.0" layoutY="14.0" prefHeight="49.0" prefWidth="287.0" text="Liste des commandes">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="101.0" layoutY="342.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+      <Button layoutX="224.0" layoutY="342.0" mnemonicParsing="false" onAction="#modif" text="Modifier" />
+      <Button layoutX="353.0" layoutY="342.0" mnemonicParsing="false" onAction="#supp" text="Supprimer" />
+      <TextField fx:id="find" layoutX="101.0" layoutY="269.0" />
+      <Button layoutX="390.0" layoutY="269.0" mnemonicParsing="false" onAction="#chercher" text="Chercher" />
+      
+   </children>
+</AnchorPane>

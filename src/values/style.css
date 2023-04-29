@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 avr. 2023, 21:53:45
+    Author     : Bettaibi Walid
+*/
+#primary {
+    -fx-background-color: #007bff;
+    -fx-background-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-padding: 8px ;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
+
+#primary:hover {
+    -fx-background-color: #0069d9;
+}
+
+#primary:active {
+    -fx-background-color: #005cbf;
+}
+
+
