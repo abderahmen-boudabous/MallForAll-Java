@@ -298,8 +298,8 @@ stock.setCellValueFactory(cellData -> {
                 buttonBox.setAlignment(Pos.CENTER);
 
                 ChoiceBox<String> choiceBox = new ChoiceBox<>();
-                choiceBox.getItems().addAll("10%", "15%", "20%");
-                choiceBox.setValue("10");
+                choiceBox.getItems().addAll("10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%");
+                choiceBox.setValue("10%");
 
                 Button applyButton = new Button("Sale");
                 applyButton.setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-cursor: hand;");
@@ -327,30 +327,6 @@ stock.setCellValueFactory(cellData -> {
 };
 
 sale.setCellFactory(cellFactory3);
-/*
-        photo.setCellFactory(column -> new TableCell<Product, String>() {
-    private final ImageView imageView = new ImageView();
-    
-    @Override
-    protected void updateItem(String photoPath, boolean empty) {
-        super.updateItem(photoPath, empty);
-        
-        if (empty || photoPath == null) {
-            setGraphic(null);
-        } else {
-            Image image = new Image(new File(photoPath).toURI().toString());
-            imageView.setImage(image);
-            imageView.setFitWidth(50);
-            imageView.setPreserveRatio(true);
-            setGraphic(imageView);
-        }
-    }
-});*/
-
-
-
-
-
         productView.setItems(data);
 }
      
