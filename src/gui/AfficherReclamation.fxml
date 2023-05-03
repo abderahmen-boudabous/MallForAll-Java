@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherReclamationController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-5.0" layoutY="-3.0" prefHeight="895.0" prefWidth="1439.0" style="-fx-background-color: #34568B;">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+               <children>
+                  <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="756.0" prefWidth="1442.0">
+                     <children>
+                        <VBox prefHeight="756.0" prefWidth="225.0" style="-fx-background-color: #222a35;">
+                           <children>
+                              <Pane prefHeight="166.0" prefWidth="195.0" style="-fx-background-color: #222a35;">
+                                 <children>
+                                    <ImageView fitHeight="132.0" fitWidth="163.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/325349369_689191806267110_8316241308021983028_n.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="163.0" prefWidth="294.0" style="-fx-background-color: #222a35;" />
+                              <Button id="sale" fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="279.0" stylesheets="@../image/stylesheet.css" text="Home" />
+                              <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Event" />
+                              <Button id="sale" fx:id="ev" mnemonicParsing="false" prefHeight="65.0" prefWidth="266.0" stylesheets="@../image/stylesheet.css" text="Event Categorie" />
+                              <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Shop" />
+                              <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+                              <Button id="sale" fx:id="ticket" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Ticket" />
+                           </children>
+                        </VBox>
+                        <Pane prefHeight="809.0" prefWidth="1042.0">
+                           <children>
+                              <Pane prefHeight="47.0" prefWidth="1227.0" style="-fx-background-color: #222a35;" />
+                              <Button fx:id="returnbtn" layoutX="751.0" layoutY="551.0" mnemonicParsing="false" onAction="#gb" onMouseClicked="#handleImageViewClick" style="-fx-background-color: bc9f1e;" text="Return" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="tfa" layoutX="263.0" layoutY="478.0" prefHeight="31.0" prefWidth="73.0" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="ReclamationsTv" layoutX="218.0" layoutY="271.0" prefHeight="237.0" prefWidth="955.0" stylesheets="@AffichageRec.css">
+         <columns>
+            <TableColumn fx:id="id_reclamationTv" prefWidth="114.0" text="id_reclamation" />
+            <TableColumn fx:id="id_utilisateurTv" prefWidth="111.0" text="id utilisateur" />
+            <TableColumn fx:id="text_reclamationTv" prefWidth="149.0" text="sujet" />
+            <TableColumn fx:id="etat_reclamationTv" prefWidth="149.0" text="contenu" />
+            <TableColumn fx:id="type_reclamationTv" minWidth="0.0" prefWidth="0.0" text="type_reclamation" />
+            <TableColumn fx:id="date_reponseTv" minWidth="0.0" prefWidth="0.0" text="date_reponse" />
+            <TableColumn fx:id="text_reponseTv" prefWidth="390.39996337890625" text="reponse" />
+            <TableColumn fx:id="date_reclamationTv" prefWidth="120.0" text="date_reclamation" />
+            <TableColumn fx:id="delete" prefWidth="74.0" text="delete" />
+            <TableColumn fx:id="modifier" prefWidth="75.0" text="modifier" />
+         </columns>
+      </TableView>
+      <Label graphicTextGap="20.0" layoutX="400.0" layoutY="44.0" prefHeight="79.0" prefWidth="380.0" stylesheets="@AffichageRec.css" text="Affichage des Reclamations" textFill="#bc9f1e">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="exportExcelBtn" layoutX="1033.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#handleImageViewClick" style="-fx-background-color: bc9f1e;" text="exportExcelBtn" />
+   </children>
+</AnchorPane>

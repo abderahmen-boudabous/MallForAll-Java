@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateshopController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="722.0" prefWidth="1059.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1567.0" style="-fx-background-color: #34568B;">
+                        <children>
+                      
+                            <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+                           <children>
+                              <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1564.0">
+                                 <children>
+                                    <VBox prefHeight="890.0" prefWidth="283.0" style="-fx-background-color: #222a35;">
+                                       <children>
+                                          <Pane prefHeight="163.0" prefWidth="236.0" style="-fx-background-color: #222a35;">
+                                             <children>
+                                                <ImageView fitHeight="63.0" fitWidth="243.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../image/mall.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <Button id="sale" fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="263.0" stylesheets="@../image/stylesheet.css" text="Home" />
+                                          <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Event" />
+                                          <Button id="sale" fx:id="ev" mnemonicParsing="false" prefHeight="64.0" prefWidth="255.0" stylesheets="@../image/stylesheet.css" text="Event Categorie" />
+                                          <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Shop" />
+                                          <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="890.0" prefWidth="1363.0">
+                                       <children>
+                                          <Pane prefHeight="64.0" prefWidth="1342.0" style="-fx-background-color: #222a35;">
+                                             <children>
+                                                <Label layoutX="475.0" layoutY="1.0" prefHeight="58.0" prefWidth="464.0" text="LIST OF SHOPS" textFill="#ff6600" textOverrun="LEADING_ELLIPSIS">
+                                                   <font>
+                                                      <Font size="38.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Label layoutX="115.0" layoutY="282.0" text="User" textFill="WHITE" />
+                                          <TextField fx:id="tfuser" layoutX="217.0" layoutY="277.0" />
+                                          <Label layoutX="107.0" layoutY="317.0" text="Name Shop" textFill="WHITE" />
+                                          <TextField fx:id="tfname" layoutX="217.0" layoutY="312.0" />
+                                          <Label layoutX="103.0" layoutY="352.0" text="Descripction" textFill="WHITE" />
+                                          <TextField fx:id="tfdescription" layoutX="217.0" layoutY="347.0" />
+                                          <Label layoutX="109.0" layoutY="387.0" text="Email" textFill="WHITE" />
+                                          <TextField fx:id="tfemail" layoutX="217.0" layoutY="383.0" />
+                                          <Button id="sale" layoutX="412.0" layoutY="448.0" mnemonicParsing="false" onAction="#updateshop" prefHeight="25.0" prefWidth="100.0" stylesheets="@../image/stylesheet.css" text="update" />
+                                          <Button id="sale" layoutX="305.0" layoutY="448.0" mnemonicParsing="false" onAction="#retourshop" prefHeight="25.0" prefWidth="100.0" stylesheets="@../image/stylesheet.css" text="Return" />
+                                                           
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                             <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                  
+                    
+                   </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

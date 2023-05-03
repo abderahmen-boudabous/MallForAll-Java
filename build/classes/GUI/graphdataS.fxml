@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.GraphdataSController">
+    <stylesheets>
+        <URL value="@graphdatas.css" />
+    </stylesheets>
+   <children>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="875.0">
+         <children>
+            <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="tete" layoutX="813.0" layoutY="541.0" prefHeight="5.0" prefWidth="0.0" />
+                  <Button layoutX="787.0" layoutY="534.0" mnemonicParsing="false" onAction="#Back" prefHeight="39.0" prefWidth="79.0" text="Back" />
+                  <BarChart fx:id="BarChart" layoutX="17.0" layoutY="15.0" prefHeight="531.0" prefWidth="743.0" title="Stock Chart">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

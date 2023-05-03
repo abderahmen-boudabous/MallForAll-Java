@@ -1,0 +1,34 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+    /* Primary button *//*
+    
+.primary-button {
+    -fx-background-color: #40bf4a;
+    -fx-background-radius: 20px;
+    -fx-text-fill: white;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}
+
+.primary-button:hover {
+    -fx-background-color: #339b3b;
+}*/
+
+/* Secondary button */
+    /*
+.secondary-button {
+    -fx-background-color: #e4e4e4;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #333;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #d0d0d0;
+}*/
+}

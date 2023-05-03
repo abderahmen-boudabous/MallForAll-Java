@@ -2,23 +2,80 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="876.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.ListEventController">
+<AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1567.0" style="-fx-background-color: #34568B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListEventController">
+      <children>
+    
+          <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+         <children>
+            <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1564.0">
+               <children>
+                  <VBox prefHeight="890.0" prefWidth="283.0" style="-fx-background-color: #222a35;">
+                     <children>
+                        <Pane prefHeight="163.0" prefWidth="236.0" style="-fx-background-color: #222a35;">
+                           <children>
+                              <ImageView fitHeight="63.0" fitWidth="243.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/mall.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Button id="sale" fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="263.0" stylesheets="@../image/stylesheet.css" text="Home" />
+                        <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Event" />
+                        <Button id="sale" fx:id="ev" mnemonicParsing="false" prefHeight="64.0" prefWidth="255.0" stylesheets="@../image/stylesheet.css" text="Event Categorie" />
+                        <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Shop" />
+                        <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="890.0" prefWidth="1363.0">
+                     <children>
+                        <Pane prefHeight="64.0" prefWidth="1342.0" style="-fx-background-color: #222a35;">
+                           <children>
+                              <Label layoutX="563.0" layoutY="6.0" prefHeight="58.0" prefWidth="216.0" text="Events list" textFill="#ff6600" textOverrun="LEADING_ELLIPSIS">
+                                 <font>
+                                    <Font size="38.0" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <ListView id="ListView" fx:id="afficheE" layoutX="25.0" layoutY="108.0" prefHeight="275.0" prefWidth="1295.0" stylesheets="@styles.css" />
+                  
+                        <Button id="red" fx:id="ajouterBut" layoutX="148.0" layoutY="428.0" onAction="#Ajouter_Event" prefHeight="43.0" prefWidth="139.0" stylesheets="@../image/stylesheet.css" text="Add">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        
+                        <Button id="red" layoutX="447.0" layoutY="429.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="139.0" stylesheets="@../image/stylesheet.css" text="Update">
+                           <font>
+                              <Font size="19.0" />
+                           </font></Button>
+                        <Button id="red" fx:id="SupprimerE" layoutX="769.0" layoutY="425.0" mnemonicParsing="false" onAction="#Supprimer_Event" prefHeight="43.0" prefWidth="135.0" stylesheets="@../image/stylesheet.css" text="Delete">
+                           <font>
+                              <Font size="19.0" />
+                           </font></Button>
+                        <Button id="dark" fx:id="sortButton" graphicTextGap="5.0" layoutX="1106.0" layoutY="395.0" onAction="#handleSortButtonAction" prefHeight="64.0" prefWidth="162.0" stylesheets="@../image/stylesheet.css" text="Sort by Date" />
+                        <Button id="dark" fx:id="exportButton" layoutX="1101.0" layoutY="470.0" onAction="#exportToPDF" prefHeight="63.0" prefWidth="170.0" stylesheets="@../image/stylesheet.css" text="Export to PDF" />
+                        <Button id="red" fx:id="decreaseSpotCountButton" layoutX="445.0" layoutY="672.0" onAction="#handleParticipateBtnClick" prefHeight="84.0" prefWidth="420.0" stylesheets="@../image/stylesheet.css" text="Participate in an Event">
+                           <font>
+                              <Font name="Serif Regular" size="36.0" />
+                           </font></Button>
+                                         
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+           <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
 
-   <children>
-      <ListView id="afficheE" fx:id="afficheE" layoutX="65.0" layoutY="68.0" prefHeight="393.0" prefWidth="745.0" />
-      <Button fx:id="ajouterBut" layoutX="100.0" layoutY="499.0" onAction="#Ajouter_Event" prefHeight="31.0" prefWidth="117.0" text="ajouter" />
-             <Button fx:id="SupprimerE" layoutX="338.0" layoutY="499.0" mnemonicParsing="false" onAction="#Supprimer_Event" prefHeight="31.0" prefWidth="117.0" text="Supprimer" />
-      <Label layoutX="65.0" layoutY="27.0" prefHeight="21.0" prefWidth="207.0" text="Event list" textFill="#a83232" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-
-   </children>
-
+  
+ </children>
 </AnchorPane>

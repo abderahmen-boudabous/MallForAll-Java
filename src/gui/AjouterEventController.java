@@ -20,86 +20,184 @@ import tn.esprit.services.EventService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.util.StringConverter;
+import tn.esprit.entities.Category;
 
 public class AjouterEventController implements Initializable {
 
-    @FXML
     private TextField nom;
 
-    @FXML
     private TextField spot;
 
-    @FXML
     private TextArea duration;
 
-    @FXML
     private DatePicker date;
 
-    @FXML
     private TextField category;
 
     @FXML
     private ImageView imglogo;
+    @FXML
+    private TextArea Nom;
+    @FXML
+    private TextField Spot;
+    @FXML
+    private TextArea Duration;
+    @FXML
+    private DatePicker Date;
+    @FXML
+    private Button Ajouter_Event;
+    @FXML
+    private ChoiceBox<Category> cbcategory;
+    
+   // CategoryEventService categoryeventService = new CategoryEventService();
+    // EventService eventService = new EventService();
+    @FXML
+    private Button RetourE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // TODO
+        
+        
+        
+      //  List<Category> categorys = categoryeventService.listerCategories();
+
+      //  cbcategory.setItems(FXCollections.observableArrayList(categorys));
+        cbcategory.setConverter(new StringConverter<Category>() {
+            
+            
+            
+            @Override
+            public String toString(Category category) {
+                return category == null ? "" : category.getTitre();
+            }
+
+            @Override
+            public Category fromString(String string) {
+                return null;
+            }
+                 });
     }
 
     @FXML
-    public void Ajouter_Event(ActionEvent event) {
-        if (nom.getText().isEmpty() || spot.getText().isEmpty() || duration.getText().isEmpty() || date.getValue() == null || category.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Erreur de saisie !");
-            alert.setContentText("Veuillez remplir tous les champs");
-            alert.show();
-        } else {
-            try {
-                Event E = new Event();
-                E.setNom(nom.getText());
-                E.setSpot(Integer.parseInt(spot.getText()));
-                E.setDuration(duration.getText());
-//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//String dateString = date.getValue().format(formatter);
-//E.setDate(dateString);
+    public void Ajouter_Event(ActionEvent event) throws SQLException {
 
-//E.setCategory(category.getText());
+        if (Nom.getText().isEmpty()) {
+            Alert aler = new Alert(Alert.AlertType.ERROR);
+            aler.setTitle("Erreur");
+            aler.setHeaderText(null);
 
-
-                NewInterface eventService = new EventService();
-
-                eventService.ajouter(E);
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ListEvent.fxml"));
-                Parent view_2 = loader.load();
-
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(view_2);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AjouterEventController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            aler.setContentText("Le nom est vide !");
+            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+            aler.getButtonTypes().setAll(okButton);
+            aler.showAndWait(); 
         }
-    }
+        else if (Spot.getText().isEmpty()) {
+            Alert aler = new Alert(Alert.AlertType.ERROR);
+            aler.setTitle("Erreur");
+            aler.setHeaderText(null);
 
+            aler.setContentText("Le nom est vide !");
+            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+            aler.getButtonTypes().setAll(okButton);
+            aler.showAndWait(); 
+        }
+        else if (Duration.getText().isEmpty()) {
+            Alert aler = new Alert(Alert.AlertType.ERROR);
+            aler.setTitle("Erreur");
+            aler.setHeaderText(null);
+
+            aler.setContentText("Le nom est vide !");
+            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+            aler.getButtonTypes().setAll(okButton);
+            aler.showAndWait(); 
+        }
+            else if (Date.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+
+
+            alert.setContentText("Le nom est vide !");
+            ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+            alert.getButtonTypes().setAll(okButton);
+            alert.showAndWait(); 
+        }
+        
+        else {
+            Category category = cbcategory.getValue(); 
+            int spot = Integer.parseInt(Spot.getText());
+            Event newEvent = new Event(Nom.getText(), spot, Duration.getText(),Date.getValue() ,category);
+            EventService eventService = new EventService();
+            eventService.ajouter(newEvent); 
+        }
+        
+;
+
+
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setHeaderText("event ajouter");
+                    ButtonType okButton = new ButtonType("ok", ButtonBar.ButtonData.OK_DONE);
+                    alert.getButtonTypes().setAll(okButton);
+                    Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
+                    okBtn.setOnAction(evt -> {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichherproduct.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            Nom.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        }
+                    });
+                    alert.showAndWait();
+        }
+
+
+    
+    
+        
     @FXML
     private void RetourE(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListEvent.fxml"));
-            Parent view_2 = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("ListEvent.fxml"));
+            Parent view_2=loader.load();
+
+            Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(view_2);
             stage.setScene(scene);
         } catch (IOException ex) {
-            Logger.getLogger(AjouterEventController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AjouterCategoryController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    } 
+
+    
+    
+    
+        
     }
-}
+        
+        
+    
+
+
+
+
+
+
+

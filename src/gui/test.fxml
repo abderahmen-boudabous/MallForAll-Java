@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="893.0" prefWidth="1592.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Button id="sale" fx:id="front" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="client space" />
+      <Button id="sale" fx:id="ratingButton" layoutX="5.0" layoutY="219.0" onAction="#openRatingPage" prefHeight="58.0" prefWidth="263.0" stylesheets="@../image/stylesheet.css" text="Rate Events" />
+   </children>
+</AnchorPane>

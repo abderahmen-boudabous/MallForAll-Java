@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="805.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierAvisController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="606.0" prefWidth="910.0" style="-fx-background-color: #34568B;">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+               <children>
+                  <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="608.0" prefWidth="1186.0">
+                     <children>
+                        <VBox prefHeight="608.0" prefWidth="199.0" style="-fx-background-color: #222a35;">
+                           <children>
+                              <Pane prefHeight="163.0" prefWidth="209.0" style="-fx-background-color: #222a35;">
+                                 <children>
+                                    <ImageView fitHeight="129.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../PidevJ3A40/PidevJ3A40/src/image/325349369_689191806267110_8316241308021983028_n.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                        <Pane prefHeight="583.0" prefWidth="977.0">
+                           <children>
+                              <Pane prefHeight="47.0" prefWidth="987.0" style="-fx-background-color: #222a35;">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" prefHeight="35.0" prefWidth="248.0" text="Modifier votre Avis" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <TextField fx:id="rate_avis" layoutX="134.0" layoutY="86.0" prefHeight="25.0" prefWidth="235.0" />
+                              <Label layoutX="14.0" layoutY="81.0" prefHeight="35.0" prefWidth="94.0" text="Rate_avis " textFill="#bc9f1e">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="texte_avis" layoutX="135.0" layoutY="158.0" prefHeight="216.0" prefWidth="235.0" />
+                              <Label layoutX="14.0" layoutY="168.0" prefHeight="17.0" prefWidth="85.0" text="Texte_avis " textFill="#bc9f1e">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="modifierB" layoutX="595.0" layoutY="437.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: bc9f1e;" text="valider" textFill="#1b1a1a" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

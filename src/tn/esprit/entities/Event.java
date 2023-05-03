@@ -1,5 +1,8 @@
 package tn.esprit.entities;
 
+
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Event {
@@ -13,7 +16,12 @@ public class Event {
     public Event() {
     }
 
-
+public Event(String nom, int id) {
+    
+    this.nom = nom;
+    this.id = id;
+    
+}
     
     public Event(int categoryId, String nom, int spot, String duration, Date date) {
     this.category = new Category(categoryId, null, null);
@@ -22,6 +30,21 @@ public class Event {
     this.duration = duration;
     this.date = date;
 }
+    
+    public Event(String nom, int spot, String duration, Date date , Category category ) {
+    this.category = category;
+    this.nom = nom;
+    this.spot = spot;
+    this.duration = duration;
+    this.date = date;
+}
+
+    public Event(String nom, int spot, String duration, LocalDate value, Category category) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
 
     // Getters and setters
     public int getId() {
@@ -75,7 +98,7 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "id=" + id +
+               // "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", spot=" + spot +
                 ", duration='" + duration + '\'' +

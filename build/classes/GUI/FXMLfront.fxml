@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700" prefWidth="1300" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLfrontController">
+
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0" />
+      <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1567.0" style="-fx-background-color: #34568B;">
+                  <children>
+                
+                      <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+                     <children>
+                        <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1564.0">
+                           <children>
+                              <VBox prefHeight="890.0" prefWidth="283.0" style="-fx-background-color: #222a35;">
+                                 <children>
+                                    <Pane prefHeight="163.0" prefWidth="236.0" style="-fx-background-color: #222a35;">
+                                       <children>
+                                          <ImageView fitHeight="63.0" fitWidth="243.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/mall.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Button id="sale" fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="263.0" stylesheets="@../image/stylesheet.css" text="Home" />
+                                    <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Event" />
+                                    <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Shop" />
+                                    <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+                                 </children>
+                              </VBox>
+                              <Pane prefHeight="890.0" prefWidth="1363.0">
+                                 <children>
+                                    <Pane prefHeight="64.0" prefWidth="1342.0" style="-fx-background-color: #222a35;">
+                                       <children>
+                                          <Label layoutX="475.0" layoutY="1.0" prefHeight="58.0" prefWidth="464.0" text="LIST OF SHOPS" textFill="#ff6600" textOverrun="LEADING_ELLIPSIS">
+                                             <font>
+                                                <Font size="38.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <TextField fx:id="searchfield" layoutX="199.0" layoutY="763.0" prefHeight="31.0" prefWidth="149.0" />
+                                    <Button id="sale" layoutX="60.0" layoutY="759.0" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="112.0" stylesheets="@../image/stylesheet.css" text="Search" />
+                                    <Button layoutX="364.0" layoutY="763.0" mnemonicParsing="false" onAction="#X" prefHeight="35.0" prefWidth="31.0" style="-fx-background-color: #FFA07A;" text="X" textAlignment="CENTER" textFill="#fc0000">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <TableView fx:id="shopView" layoutX="16.0" layoutY="82.0" prefHeight="601.0" prefWidth="1295.0">
+                                       <columns>
+                                          <TableColumn fx:id="user" prefWidth="70.0" text="OWNER" />
+                                          <TableColumn fx:id="name" prefWidth="88.66665649414062" text="SHOP" />
+                                          <TableColumn fx:id="description" prefWidth="165.33334350585938" text="DESCRIPTION" />
+                                          <TableColumn fx:id="email" minWidth="0.0" prefWidth="177.33331298828125" text="EMAIL" />
+                                          <TableColumn fx:id="date" prefWidth="159.66668701171875" text="DATE" />
+                                          <TableColumn fx:id="img" prefWidth="341.0" text="PHOTO" />
+                                          <TableColumn fx:id="like" prefWidth="62.0" text="LIKES" />
+                                          <TableColumn fx:id="dislike" prefWidth="70.0" text="DISLIKES" />
+                                          <TableColumn fx:id="likebutton" prefWidth="165.0" text="RATE" />
+                                       </columns>
+                                    </TableView>
+                                                     
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                       <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+            
+              
+             </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
