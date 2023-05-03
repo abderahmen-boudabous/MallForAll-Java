@@ -56,6 +56,16 @@ import tn.esprit.tools.MaConnexion;
  */
 public class ListEventController implements Initializable {
 
+<<<<<<< HEAD
+=======
+        @FXML
+    private ComboBox<Event> eventComboBox;
+
+    @FXML
+    private TextField shopNameField;
+    @FXML
+    private Label messageLabel;
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     
     private ParticipantService participantService;
     
@@ -74,6 +84,7 @@ public class ListEventController implements Initializable {
     
     @FXML
     private Label eventNameLabel;
+<<<<<<< HEAD
     @FXML
     private Button ajouterBut;
     @FXML
@@ -82,6 +93,8 @@ public class ListEventController implements Initializable {
     private Button exportButton;
     @FXML
     private Button decreaseSpotCountButton;
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     
     public void setEventName(String eventName) {
         eventNameLabel.setText(eventName);
@@ -90,11 +103,22 @@ public class ListEventController implements Initializable {
     @FXML
     private ListView<Event> afficheE;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
 
+<<<<<<< HEAD
+    private ListView<Event> eventE;
+    @FXML
+=======
 
     private ListView<Event> eventE;
     @FXML
+    private Button ajouterBut;
+    @FXML
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     private Button sortButton;
     
     private List<Event> eventList;
@@ -207,7 +231,11 @@ public void displayEvents() throws SQLException {
     }
 
     
+<<<<<<< HEAD
     @FXML
+=======
+@FXML
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 void Supprimer_Event(ActionEvent event) throws SQLException {
     // get the selected category
     Event selectedid = afficheE.getSelectionModel().getSelectedItem();
@@ -231,8 +259,13 @@ private void handleSortButtonAction(ActionEvent event) {
 
 
 
+<<<<<<< HEAD
     @FXML
     private void exportToPDF(ActionEvent event) throws SQLException, DocumentException, FileNotFoundException {
+=======
+@FXML
+private void exportToPDF(ActionEvent event) throws SQLException, DocumentException, FileNotFoundException {
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     Connection connection = MaConnexion.getInstance().getCnx();
     PdfExporter.exportEventsToPDF(connection);
 }
@@ -257,7 +290,11 @@ void reduceSpotCount(ActionEvent event) throws SQLException {
 }*/
 
 
+<<<<<<< HEAD
     @FXML
+=======
+@FXML
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 void handleParticipateBtnClick(ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Participant.fxml"));
     Parent root = loader.load();
@@ -327,7 +364,10 @@ String message = "You have participated in " + selectedEvent.getNom() + ". You w
 */
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
 
 }

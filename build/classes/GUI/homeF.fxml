@@ -11,7 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeFController">
+=======
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.HomeFController">
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
    <children>
       <AnchorPane id="AnchorPane" prefHeight="873.0" prefWidth="1575.0">
       
@@ -36,8 +41,11 @@
                               <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Event" />
                               <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Shop" />
                               <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+<<<<<<< HEAD
                               <Button id="sale" fx:id="ticket" mnemonicParsing="false" onAction="#gtt" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Ticket" />
                               <Button id="sale" fx:id="s" mnemonicParsing="false" onAction="#redS" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Suppliers" />
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
       
                            </children>
                         </VBox>

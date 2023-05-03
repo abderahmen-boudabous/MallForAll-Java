@@ -9,7 +9,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 import javafx.scene.Node;
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -38,10 +41,13 @@ public class HomeFController implements Initializable {
     private Button front2;
     @FXML
     private ImageView homeImage;
+<<<<<<< HEAD
     @FXML
     private Button ticket;
     @FXML
     private Button s;
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
     @FXML
     void playSound(ActionEvent event) {
@@ -141,6 +147,7 @@ private void openRatingPage() {
     }
 }
 
+<<<<<<< HEAD
     @FXML
     private void gtt(ActionEvent event) {
           try {
@@ -164,6 +171,8 @@ private void openRatingPage() {
             stage.show();
     }
 
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
 
 

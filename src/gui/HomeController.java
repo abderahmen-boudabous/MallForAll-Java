@@ -9,7 +9,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 import javafx.scene.Node;
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,20 +31,33 @@ public class HomeController implements Initializable {
     private Button evc;
     @FXML
     private Button ev;
+<<<<<<< HEAD
+=======
+    @FXML
+    private Button front;
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     
     String path = "C:\\Users\\msi\\Desktop\\PidevJ3A40\\src\\image\\sound.mp3";
     Media media = new Media(new File(path).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
     @FXML
+<<<<<<< HEAD
+=======
+    private Button ratingButton;
+    @FXML
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     private Button front1;
     @FXML
     private Button front2;
     @FXML
     private ImageView homeImage;
+<<<<<<< HEAD
     @FXML
     private Button ticket;
     @FXML
     private Button supplier;
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
     @FXML
     void playSound(ActionEvent event) {
@@ -72,6 +88,7 @@ public class HomeController implements Initializable {
             System.err.println("Error loading page " + ex.getMessage());
         }
     });
+<<<<<<< HEAD
         ticket.setOnAction(e -> {
         try {
             Parent afficherEvent = FXMLLoader.load(getClass().getResource("menur3.fxml"));
@@ -83,6 +100,8 @@ public class HomeController implements Initializable {
             System.err.println("Error loading page " + ex.getMessage());
         }
     });
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
         ev.setOnAction(e -> {
         try {
             Parent afficherCategory = FXMLLoader.load(getClass().getResource("ListCategory.fxml"));
@@ -149,6 +168,10 @@ public class HomeController implements Initializable {
     } 
     
     
+<<<<<<< HEAD
+=======
+    @FXML
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 private void openRatingPage() {
     try {
         Parent root = FXMLLoader.load(getClass().getResource("Rating.fxml"));
@@ -161,6 +184,7 @@ private void openRatingPage() {
     }
 }
 
+<<<<<<< HEAD
     @FXML
     private void redsupplier(ActionEvent event) throws IOException {
          FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherFournisseur.fxml"));
@@ -171,6 +195,8 @@ private void openRatingPage() {
             stage.show();
     }
 
+=======
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
 
 
 

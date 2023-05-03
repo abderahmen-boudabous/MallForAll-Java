@@ -9,7 +9,11 @@ import javafx.stage.Stage;
 public class MyApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+<<<<<<< HEAD
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherFournisseur.fxml"));
+=======
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EventTableGridPane.fxml"));
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
         Parent root = loader.load();
 
         Scene scene = new Scene(root);

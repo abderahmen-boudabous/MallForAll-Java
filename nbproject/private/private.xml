@@ -11,9 +11,13 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/msi/Desktop/PidevJ3A40/src/tn/esprit/tools/MaConnexion.java</file>
             <file>file:/C:/Users/msi/Desktop/PidevJ3A40/src/tn/esprit/tests/main.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> f0b84b16c6b3dac6c883d4f4a1ae6272f0c55c08
     </open-files>
 </project-private>
