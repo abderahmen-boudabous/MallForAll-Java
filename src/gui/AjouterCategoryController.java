@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,40 +60,48 @@ public class AjouterCategoryController implements Initializable {
         // TODO
     }    
     
-       @FXML
-    public void Ajouter_Category(ActionEvent event) {
+@FXML
+public void Ajouter_Category(ActionEvent event) throws SQLException {
     if (Titre.getText().length() == 0||Description.getText().length() ==0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Erreur de saisie !");
-            alert.setContentText("Please remplir tous les champs"+ "");
-            alert.show();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Erreur de saisie !");
+        alert.setContentText("Please remplir tous les champs"+ "");
+        alert.show();
+    } else if (!Titre.getText().matches("^[a-zA-Z]+$")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Erreur de saisie !");
+        alert.setContentText("Le titre ne doit pas contenir de nombres"+ "");
+        alert.show();
+    } else if (Description.getText().length() < 4) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Erreur de saisie !");
+        alert.setContentText("La description doit contenir au moins 4 lettres"+ "");
+        alert.show();
+    } else {
+        try {
+            Category C= new Category();
+            C.setTitre(Titre.getText());
+            C.setDescription(Description.getText());
 
-        }else{
+            NewInterface Ct = new CategoryEventService();
+            Ct.ajouter(C);
 
-            try {
-                Category C= new Category();
-                C.setTitre(Titre.getText());
-                C.setDescription(Description.getText());
-                
-                NewInterface Ct = new CategoryEventService();
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("ListCategory.fxml"));
+            Parent view_2=loader.load();
 
-                Ct.ajouter(C);
-
-
-                FXMLLoader loader= new FXMLLoader(getClass().getResource("ListCategory.fxml"));
-                Parent view_2=loader.load();
-
-                Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(view_2);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AjouterCategoryController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(view_2);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterCategoryController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+}
+
 
     @FXML
     private void RetourE(ActionEvent event) {

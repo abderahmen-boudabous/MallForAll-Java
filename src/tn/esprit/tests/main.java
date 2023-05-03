@@ -1,7 +1,9 @@
 
 package tn.esprit.tests;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import static javafx.application.Application.launch;
 import tn.esprit.entities.Category;
 import tn.esprit.entities.Event;
@@ -13,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tn.esprit.entities.Participant;
+import tn.esprit.services.ParticipantService;
 
 
 
@@ -20,7 +24,7 @@ import javafx.stage.Stage;
 
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
               // launch(args);
 /*
@@ -44,7 +48,7 @@ public class main {
     List<Event> events = EventService.afficher();
     for (Event event : events) {
        System.out.println(event);
-   }
+    }
   
 */
        //-------------- tri -------- ----------------------
@@ -63,7 +67,7 @@ for (Event e : sortedEvents) {
 /*
 // create an instance of Event with an existing id
 Event eventToDelete = new Event();
-eventToDelete.setId(135); 
+eventToDelete.setId(127); 
 
 // create an instance of EventService
 EventService eventService = new EventService();
@@ -74,14 +78,14 @@ List<Event> events = eventService.afficher();
 for (Event e : events) {
     System.out.println(e);
 }
-*/
 
+*/
 
 
     //   --------------------- ajoute ----------------------------- 
     
-    
-/*    
+    /*
+   
             EventService eventService = new EventService();
 
             // create a new Category object and add it to the database
@@ -103,44 +107,79 @@ for (Event e : events) {
             for (Event e : events) {
                 System.out.println(e);
             }
-   */     
-    
+       
+    */
     
     
     //___________________________________ _ Category Event _ ___________________________________________________________//    
 
        
-    /*
+    
    
 
-    CategoryEventService categoryService = new CategoryEventService();
+    //CategoryEventService categoryService = new CategoryEventService();
     
     // create a new category
-    Category category = new Category("Category 13", "Description of category 1");
+    //Category category = new Category("Category 13", "Description of category 1");
     //categoryService.ajouter(category);
     
     // display all categories
    
    
-    List<Category> categories = categoryService.afficher();
-    for (Category c : categories) {
-        System.out.println(c);
-    }
-    
+    //List<Category> categories = categoryService.afficher();
+    //for (Category c : categories) {
+     //   System.out.println(c);
+   // }
+   
     // delete the category
-   /* 
-    CategoryEventService CategoryEventService = new CategoryEventService();
+   
+/*
+        CategoryEventService categoryEventService = new CategoryEventService();
+        Category categoryToDelete = new Category();
+        categoryToDelete.setId(48);
+        categoryEventService.supprimer(categoryToDelete);
 
-        category.setId(47);
-        CategoryEventService.supprimer(category);
-
+*/
  
   
         // update the category
-    Category updatedCategory = new Category(48, "Category 1 (updated)", "Description 1 (updated)");
-    categoryService.update(updatedCategory);
-*/
+   // Category updatedCategory = new Category(62, "Category 1 (updated)", "Description 1 (updated)");
+   // categoryService.update(updatedCategory);
+
+     /*
+   
+       Category category = new Category();
+    category.setId(62);
+    category.setTitre("Nouveau titre");
+    category.setDescription("Nouvelle description");
+
+    // create a CategoryEventService instance
+    CategoryEventService categoryEventService = new CategoryEventService();
+
+    // call the update method and pass the Category instance
+    categoryEventService.update(category);
+   
+      */  
      
-        
+     
+     
+     
+     /*
+     
+
+   ParticipantService participantService = new ParticipantService();
+
+    // call the getParticipantsWithEventNames method
+    List<Map<String, Object>> participantList = participantService.getParticipantsWithEventNames();
+
+    // print the list of participants with event names
+    for (Map<String, Object> participant : participantList) {
+        System.out.println("Participant ID: " + participant.get("id"));
+        System.out.println("Event Name: " + participant.get("event_name"));
+        System.out.println("Seller Name: " + participant.get("seller_name"));
+    }
+     */
+     
+     
     }
 }

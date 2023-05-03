@@ -1,107 +1,108 @@
 package gui;
 
-import static java.awt.PageAttributes.MediaType.C;
-import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import static org.omg.CORBA.AnySeqHelper.id;
 import tn.esprit.entities.Category;
 import tn.esprit.services.CategoryEventService;
 
-
-
-
-
 public class ModifierCategoryController implements Initializable {
-    
-    
-     Category c = new Category() ;
-     CategoryEventService hj = new CategoryEventService();
-    
-     @FXML
-    private Button Annuler;
 
+    
     @FXML
-    private Button Modifier_Category;
-
+    private TextField titre;
     @FXML
     private TextField description;
 
+    private Category category;
     @FXML
-    private TextField titre;
-
-    
-    
-    
-    
+    private Button Modifier_Category;
+    @FXML
+    private Button Annuler;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        titre.setText(c.getTitre());
-        description.setText(c.getDescription());
-    } 
-    
-    
-     @FXML
-    void Annuler(ActionEvent event) {
-
     }
-    
-    
-    
-  void getCategory(Category C) {
-    c.setTitre(C.getTitre());
-    c.setDescription(C.getDescription());
 
-}
-
-        
-
-        @FXML
-    
+    public void setCategory(Category category) {
+        this.category = category;
+        titre.setText(category.getTitre());
+        description.setText(category.getDescription());
+    }
+/*
+    @FXML
     private void Modifier_Category(ActionEvent event) {
+        category.setTitre(titre.getText());
+        category.setDescription(description.getText());
 
-       
-        try {
-        c.setTitre(titre.getText());
-        c.setDescription(description.getText());
-        hj.update(c);
+        CategoryEventService categoryEventService = new CategoryEventService();
+        categoryEventService.update(category);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListCategory.fxml"));
-        Parent view_2 = loader.load();
-        Scene scene = new Scene(view_2);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Category modified");
+        ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+        alert.getButtonTypes().setAll(okButton);
+        Button okBtn = (Button) alert.getDialogPane().lookupButton(okButton);
+        okBtn.setOnAction(evt -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListCategory.fxml"));
+            try {
+                Parent root = loader.load();
+                titre.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        });
+        alert.showAndWait();
+    }
+
+    
+@FXML
+void Modifier_Category(ActionEvent event) {
+    if (titre.getText().isEmpty() || description.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        Category cat = new Category();
+        cat.setId(category.getId()); // Use the category object's id instead of the undefined id variable
+        cat.setTitre(titre.getText());
+        cat.setDescription(description.getText());
+        // Create an instance of CategoryEventService and call the update method on it
+        CategoryEventService categoryEventService = new CategoryEventService();
+        categoryEventService.update(cat);
+        JOptionPane.showMessageDialog(null, "Category modified successfully");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        Logger.getLogger(ModifierCategoryController.class.getName()).log(Level.SEVERE, null, ex);
+        stage.close();
     }
+}
+*/
 
 
+    
+    
+    
+    @FXML
+    private void Annuler(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListCategory.fxml"));
+        try {
+            Parent root = loader.load();
+            titre.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
-    
-    
-
-
-
-    
 }

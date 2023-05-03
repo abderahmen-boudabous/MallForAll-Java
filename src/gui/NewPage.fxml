@@ -1,0 +1,21 @@
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <?import java.lang.*?>
+    <?import java.util.*?>
+    <?import javafx.scene.*?>
+    <?import javafx.scene.control.*?>
+    <?import javafx.scene.layout.*?>
+
+    <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListEventController">
+
+        <VBox alignment="CENTER" prefWidth="100.0">
+            <Label text="Select the event:" />
+            <ComboBox fx:id="eventComboBox" prefWidth="150.0" />
+
+            <Label fx:id="messageLabel" text="" />
+            <Label text="Please enter your shop name: "/>
+            <TextField fx:id="shopNameField" prefWidth="150.0"/>
+            <Button fx:id="confirmButton" text="Confirm" onAction="#handleParticipateBtnClick"/>
+        </VBox>
+
+    </AnchorPane>

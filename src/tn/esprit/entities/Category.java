@@ -1,8 +1,10 @@
 package tn.esprit.entities;
-
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 
 public class Category {
+     
     private int id;
     private String titre;
     private String description;
@@ -21,6 +23,10 @@ public class Category {
         this.titre = titre;
         this.description = description;
         }
+
+    public Category(int id, String description) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public int getId() {
         return id;
@@ -51,9 +57,9 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "id=" + id +
+               // "id=" + id +
                 ", titre='" + titre +
                 ", description'" + description + '\'' +
                 '}';
-    }
+    }   
 }

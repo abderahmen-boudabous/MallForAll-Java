@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLpController">
+   <children>
+      <HBox prefHeight="608.0" prefWidth="1186.0" />
+      <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1567.0" style="-fx-background-color: #34568B;">
+                  <children>
+                
+                      <AnchorPane id="AnchorPane" prefHeight="557.0" prefWidth="1178.0">
+                     <children>
+                        <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="890.0" prefWidth="1564.0">
+                           <children>
+                              <VBox prefHeight="890.0" prefWidth="283.0" style="-fx-background-color: #222a35;">
+                                 <children>
+                                    <Pane prefHeight="163.0" prefWidth="236.0" style="-fx-background-color: #222a35;">
+                                       <children>
+                                          <ImageView fitHeight="63.0" fitWidth="243.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/mall.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Button id="sale" fx:id="home" mnemonicParsing="false" prefHeight="57.0" prefWidth="263.0" stylesheets="@../image/stylesheet.css" text="Home" />
+                                    <Button id="sale" fx:id="evc" mnemonicParsing="false" prefHeight="57.0" prefWidth="261.0" stylesheets="@../image/stylesheet.css" text="Event" />
+                                    <Button id="sale" fx:id="ev" mnemonicParsing="false" prefHeight="64.0" prefWidth="255.0" stylesheets="@../image/stylesheet.css" text="Event Categorie" />
+                                    <Button id="sale" fx:id="front1" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Shop" />
+                                    <Button id="sale" fx:id="front2" mnemonicParsing="false" prefHeight="57.0" prefWidth="270.0" stylesheets="@../image/stylesheet.css" text="Product" />
+                                 </children>
+                              </VBox>
+                              <Pane prefHeight="890.0" prefWidth="1363.0">
+                                 <children>
+                                    <Pane prefHeight="64.0" prefWidth="1342.0" style="-fx-background-color: #222a35;">
+                                       <children>
+                                          <Label layoutX="475.0" layoutY="1.0" prefHeight="58.0" prefWidth="464.0" text="LIST OF PRODUCTS" textFill="#ff6600" textOverrun="LEADING_ELLIPSIS">
+                                             <font>
+                                                <Font size="38.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <TableView fx:id="productView" layoutX="23.0" layoutY="96.0" prefHeight="550.0" prefWidth="1279.0">
+                                       <columns>
+                                          <TableColumn fx:id="name" prefWidth="148.0" text="NAME" />
+                                          <TableColumn fx:id="type" prefWidth="112.0" text="TYPE" />
+                                          <TableColumn fx:id="stock" prefWidth="101.00003051757812" text="STOCK" />
+                                          <TableColumn fx:id="price" prefWidth="114.66668701171875" text="PRICE" />
+                                          <TableColumn fx:id="shop" prefWidth="156.3333740234375" text="SHOP" />
+                                          <TableColumn fx:id="photo" prefWidth="248.33331298828125" text="PHOTO" />
+                                          <TableColumn fx:id="deletep" prefWidth="126.3333740234375" text="DELETE" />
+                                          <TableColumn fx:id="update" prefWidth="95.6666259765625" text="UPDATE" />
+                                          <TableColumn fx:id="sale" prefWidth="178.0" text="SALE" />
+                                       </columns>
+                                    </TableView>
+                                    <Button id="sale" layoutX="888.0" layoutY="696.0" mnemonicParsing="false" onAction="#addp" prefHeight="47.0" prefWidth="155.0" stylesheets="@../image/stylesheet.css" text="ADD PRODUCT" />
+                                    <TextField fx:id="searchfield" layoutX="217.0" layoutY="711.0" prefHeight="31.0" prefWidth="149.0" />
+                                    <Button id="sale" layoutX="114.0" layoutY="702.0" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="90.0" stylesheets="@../image/stylesheet.css" text="Search" />
+                                    <Button layoutX="372.0" layoutY="703.0" mnemonicParsing="false" onAction="#X" prefHeight="35.0" prefWidth="30.0" style="-fx-background-color: #FFA07A;" text="X" textAlignment="CENTER" textFill="#fc0000">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="sale" layoutX="1048.0" layoutY="696.0" mnemonicParsing="false" onAction="#datachart" prefHeight="39.0" prefWidth="150.0" stylesheets="@../image/stylesheet.css" text="STOCK CHART" />
+                                                     
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                       <Label fx:id="eventNameLabel" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+            
+              
+             </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
