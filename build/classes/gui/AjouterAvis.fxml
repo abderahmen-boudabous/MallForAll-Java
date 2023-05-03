@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="366.0" prefWidth="545.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterAvisController">
+   <children>
+      <ImageView fitHeight="130.0" fitWidth="167.0" layoutX="363.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/téléchargement%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="177.0" prefHeight="62.0" prefWidth="230.0" text="Ajouter votre Avis" textFill="#bc9f1e">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="texte_avis" layoutX="47.0" layoutY="71.0" prefHeight="200.0" prefWidth="297.0" promptText="texte_avis" style="-fx-background-color: bc9f1e;" />
+      <Button fx:id="AjouterReclamationBtn" layoutX="375.0" layoutY="299.0" mnemonicParsing="false" onAction="#AjouterAvis" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: bc9f1e;" text="Ajouter" />
+      <Button layoutX="447.0" layoutY="299.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: bc9f1e;" text="Afficher" />
+      <Rating fx:id="rating" layoutX="56.0" layoutY="283.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 mars 2023, 22:16:06
+    Author     : arafet
+*/
+
+/* Appliquer un style à l'élément racine de la scène */
+.root {
+    -fx-background-color: #808080; /* Couleur de fond */
+}
+
+/* Appliquer un style à l'étiquette d'horloge */
+#timeLabel {
+    -fx-font-size: 15px; /* Taille de police */
+    -fx-font-weight: bold; /* Poids de police */
+    -fx-text-fill: #FFFFFF; /* Couleur de texte */
+}
+
+/* Appliquer un style au bouton de changement de fuseau horaire */
+#timezoneButton {
+    -fx-font-size: 16px; /* Taille de police */
+    -fx-background-color: #808080; /* Couleur de fond */
+    -fx-text-fill: #FFFFFF; /* Couleur de texte */
+    -fx-padding: 10px 20px; /* Espacement interne */
+    -fx-border-radius: 5px; /* Rayon de bordure */
+}
+
+/* Style de survol pour le bouton de changement de fuseau horaire */
+#timezoneButton:hover {
+    -fx-background-color: #2980b9; /* Couleur de fond de survol */
+}

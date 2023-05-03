@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Menur3Controller">
+   <children>
+      <TextField fx:id="tf" layoutX="383.0" layoutY="36.0" prefHeight="26.0" prefWidth="0.0" />
+      <Button layoutX="182.0" layoutY="35.0" mnemonicParsing="false" onAction="#gtav" prefHeight="26.0" prefWidth="235.0" text="afficher avis" />
+      <Button layoutX="182.0" layoutY="91.0" mnemonicParsing="false" onAction="#gtar" prefHeight="26.0" prefWidth="235.0" text="afficher reclamation" />
+      <Button layoutX="182.0" layoutY="147.0" mnemonicParsing="false" onAction="#gts" prefHeight="26.0" prefWidth="235.0" text="statistiques" />
+      <Button layoutX="182.0" layoutY="200.0" mnemonicParsing="false" onAction="#gtn" prefHeight="26.0" prefWidth="235.0" text="notification" />
+   </children>
+</AnchorPane>
